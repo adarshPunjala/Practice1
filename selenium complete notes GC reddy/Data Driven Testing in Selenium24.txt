@@ -1,0 +1,150 @@
+Class Notes:
+Selenium Class 29: Data Driven Testing in Selenium
+--------------------------------------------------------
+Data Driven Testing using DataProvider
+
+1) Read Test data (String type) from excel file and perform Data driven Testing for Admin Login Functionality.
+
+2) Read Test data (Integer type) from excel file and perform Data driven Testing for Addition Functionality.
+-------------------------------------------------------
+1) Read Test data (String type) from excel file and perform Data driven Testing for Admin Login Functionality.
+
+Steps in Admin Login
+
+i) Launch the Browser
+ii) Navigate to http://www.gcrit.com/build3/admin/
+iii) Enter User name
+iv) Enter Password
+v) Click "Login" Button
+-----------------
+Verification Point
+Capture URL, and compare with expected.
+
+Expected = http://www.gcrit.com/build3/admin/index.php
+--------------------------------------
+Prepare Test data file.
+--------------------------------
+> Download Excel jar and extract
+> Add Excel jar to Java Project in Eclipse
+-------------------------------------
+Selenium Test Case:
+
+public class DatadrivenTest {
+public WebDriver driver;
+@Test(dataProvider ="testdata")
+public void login(String username, String password){
+driver = new FirefoxDriver();
+driver.get("http://www.gcrit.com/build3/admin/");
+driver.findElement(By.name("username")).sendKeys(username);
+driver.findElement(By.name("password")).sendKeys(password);
+driver.findElement(By.id("tdb1")).click();
+Assert.assertEquals("http://www.gcrit.com/build3/admin/index.php", driver.getCurrentUrl());
+driver.close();
+}
+ 
+@DataProvider(name = "testdata")
+public Object [] [] readExcel() throws BiffException, IOException {
+File f = new File("C:/Users/gcreddy/Desktop/Input.xls");
+Workbook w = Workbook.getWorkbook(f);
+Sheet s = w.getSheet("Sheet1");
+int rows = s.getRows();
+int columns = s.getColumns();
+//System.out.println(rows);
+//System.out.println(columns);
+
+String inputData [] [] = new String [rows] [columns];
+for (int i=0; i<rows; i++){
+ for (int j=0; j<columns; j++){
+ Cell c = s.getCell(j, i);
+ inputData [i][j] = c.getContents();
+ System.out.println(inputData[i][j]);
+}
+}
+return inputData;
+}
+}
+-----------------------------------------
+2) Read Test data (Integer type) from excel file and perform Data driven Testing for Addition Functionality.
+
+public class Datadriven2 {
+@Test(dataProvider="testdata")
+public void add(String val1, String val2, String val3){
+int a = Integer.parseInt(val1);
+int b = Integer.parseInt(val2);
+int c = Integer.parseInt(val3);
+int result = a + b + c;
+System.out.println(result);
+}
+@DataProvider(name="testdata") 
+public Object [] [] readExcel() throws BiffException, IOException {
+File f = new File("C:/Users/gcreddy/Desktop/Input.xls");
+Workbook w = Workbook.getWorkbook(f);
+Sheet s = w.getSheet("Sheet1");
+int rows = s.getRows();
+int columns = s.getColumns();
+//System.out.println(rows);
+//System.out.println(columns);
+
+String inputData [] [] = new String [rows][columns];
+for (int i=0; i<rows; i++){
+ for (int j=0; j<columns; j++){
+  Cell c = s.getCell(j, i);
+  inputData[i][j] = c.getContents();
+  //System.out.println(inputData[i][j]);
+  }
+}
+return inputData; 
+}
+}
+------------------------------------------------------------
+Difference between Reading String type data and Integer type data.
+
+If it is String type data then you can use the data as it is.
+
+If it is Integer type data, convert the data (from String type to Integer type) then use the data.
+-------------------------
+Why we need to convert the data?
+
+If you read data then Computer program considers the data as String type data,
+In order to perform mathematical operations then we need to convert the data.
+-----------------------------------------------------------
+Assignments
+
+i) After Assert fails then close the Browser. (Madhavi)
+
+ii) Read data from excel (range of records) -(Rahman)
+----------------------------------------
+Assignments
+
+i) Verify "Telephone Number" field in Customer registration form.
+
+Enter valid inputs for all fields except "Telephone Number" and click
+
+Capture error message and compare with expected.
+
+Write exception.
+------------------------------------------
+Data has 3 factors
+
+Type (Alfa bytes, numeric, Alfa-numeric etc...)
+Size (10 digits)
+Range (25 to 30 Years, 30 to 35 Years ....)
+--------------------------------------------------------
+ii) Verify Email field in http://niittrainercentral.com/UserRegistration.aspx form
+
+Check Email format
+something@something.something
+Or
+something@something.something.something
+------------------------------------------------------
+iii) Verify the Date field(Date of Birth:) in customer Registration form
+----------------------------------------------------------------
+Project Automation
+
+Selenium WebDriver + Programming (Java) + Testing Framework(JUnit/TestNG)
+Or
+Selenium WebDriver + Programming (C#) + Testing Framework(NUnit)
+Or
+Selenium IDE
+Or
+Selenium WebDriver + Programming (Java)

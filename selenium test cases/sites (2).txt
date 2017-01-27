@@ -1,0 +1,23 @@
+﻿System.setProperty("webdriver.firefox.marionette","G:\\Selenium\\Firefox driver\\geckodriver.exe");
+ 
+             // if above property is not working or not opening the application in browser then try below property
+ 
+             //System.setProperty("webdriver.gecko.driver","G:\\Selenium\\Firefox driver\\geckodriver.exe");
+ 
+            WebDriver driver = new FirefoxDriver();
+ 
+            driver.get("http://www.facebook.com");
+ 
+            System.out.println("Application title is ============="+driver.getTitle());
+ 
+            driver.quit();
+ 
+      }
+ ----------------------------------------------------------------------------------
+System.setProperty("webdriver.gecko.driver","G:\\Selenium\\Firefox driver\\geckodriver.exe");
+ 
+------------------------------------------------------------------------------
+https://github.com/SeleniumHQ/selenium/issues/1390
+
+-----------------------------------------
+"C:\Users\Adarsh P\Desktop\selenium-java-3.0.1\geckodriver-v0.9.0-win64\geckodriver.exe"

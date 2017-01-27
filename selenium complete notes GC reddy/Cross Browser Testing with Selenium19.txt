@@ -1,0 +1,168 @@
+Selenium Class 22: Cross Browser Testing using Selenium WebDriver
+---------------------------------------------------------------------------
+1) What is Cross Browser Testing?
+
+Cross Browser Testing is a type of Test to check that our Web Application works as expected in different Browsers.
+
+2) Why Cross Browser Testing?
+
+A web application can be opened in any web browser by the end user, So we need to ensure that the web application will work as expected in all popular browsers.
+-----------------------------------
+3) Popular Browsers
+
+a) Google Chrome: It was released in 2008, its market share approximately 68%
+
+b) Mozilla Firefox: It was released in 2004, its market share approximately 19%
+
+c) Internet Explorer: It was released in 1995, its market share approximately 6.5%
+------------------------------------------
+4) Working with different Browsers.
+
+> Selenium WebDriver supports Browser compatibility tests on almost every popular browser, including Chrome, Firefox, IE, Opera and Safari.
+
+> The WebDriver API drives the web browser as the real user would drive it.
+
+> By default, Firefox driver comes with selenium-serverstanalone.jar library added.
+
+> For Chrome, IE, Safari, Opera, there are libraries that need to be instantiated externally.
+-----------------------------------------------
+5) How to conduct Cross Browser Testing using Selenium WebDriver?
+
+a) Element Locators - Same for all Browsers.
+
+b) WebDriver Methods/Commands -Same for all Browsers.
+
+c) Programming features (Java/C#/Python/Perl/Ruby/PHP) - Same for all Browsers.
+
+d) JUnit / TestNG Annotations - Same for all Browsers.
+
+e) Browser Driver - various from one browser to another.
+
+Note: For Mozilla Firefox, just create the driver, For other browsers, libraries that need to be instantiated externally.
+---------------------------------
+f) Inspect Elements -
+
+For Mozilla Firefox -Built in feature Page Inspector,
+(Firebug and Firepath)
+
+For Chrome and IE - Built in Developer tools
+---------------------
+--------------------------------------------------------
+6) Create Browser Drivers
+
+(For Google Chrome, IE and Other Browsers, download Browser drivers and set path in Selenium Test Scripts)
+
+a) Mozilla Firefox Browser:
+
+WebDriver driverName = new FirefoxDriver();
+
+b) Google Chrome
+
+//Instantiate Chrome Browser driver
+
+System.setproperty("webdriver.chrome.driver", "driver .exe file path");
+WebDriver driverName = new ChromeDriver();
+
+c) IE Browser driver
+
+System.setproperty("webdriver.ie.driver", "driver .exe file path");
+WebDriver driverName = new InternetExplorerDriver();
+------------------------------------------------------
+7) Create a Test Case and Execute using Mozilla Firefox, Chrome and IE Browsers.
+
+Test Case: Verify Launch Application (Google) functionality in Firefox, Chrome and IE Browsers.
+
+Steps:
+i) Launch the Browser
+ii) Navigate to https://www.google.com url
+
+Verification point:
+Capture the page Title (Actual) and Compare with Expected.
+
+Expected Page Title: 
+--------------------------------
+a) Test Case for Mozilla Firefox Browser
+
+WebDriver driver = new FirefoxDriver();
+driver.get("https://www.google.com");
+
+String PageTitle = driver.getTitle();
+
+if (PageTitle.equals("Google")){
+System.out.println("Google Application Launched - Passed");
+}
+else {
+System.out.println("Google Application Not Launched -Failed"); 
+}
+driver.close();
+------------------------------
+b) Test Case for Google Chrome Browser
+
+System.setProperty("webdriver.chrome.driver", "E:\\chromedriver.exe");
+WebDriver driver = new ChromeDriver();
+driver.get("https://www.google.com");
+
+String PageTitle = driver.getTitle();
+
+if (PageTitle.equals("Google")){
+System.out.println("Google Application Launched - Passed");
+}
+else {
+System.out.println("Google Application Not Launched -Failed"); 
+}
+driver.close();
+------------------------------
+c) Test Case for internet Explorer browser
+
+System.setProperty("webdriver.ie.driver", "E:\\IEDriverServer.exe");
+WebDriver driver = new InternetExplorerDriver();
+driver.get("https://www.google.com");
+
+String PageTitle = driver.getTitle();
+
+if (PageTitle.equals("Google")){
+System.out.println("Google Application Launched - Passed");
+}
+else {
+System.out.println("Google Application Not Launched -Failed"); 
+}
+driver.close();
+--------------------------------------
+8) Create a Test Case and Execute using Mozilla Firefox, Chrome and IE Browsers Continuously.
+
+public class TestCase1 {
+public static WebDriver driver;
+public static int browser;
+public static String BrowserName;
+
+public static void main(String[] args) {
+
+for (browser = 1; browser <= 3; browser++){
+if (browser == 1) {
+driver = new FirefoxDriver();
+BrowserName = "Mozilla Firefox Browser: ";
+}
+else if (browser == 2) {
+System.setProperty("webdriver.chrome.driver", "E:\\chromedriver.exe");
+driver = new ChromeDriver();
+BrowserName = "Google Chrome Browser: ";
+}
+else if (browser == 3){
+System.setProperty("webdriver.ie.driver", "E:\\IEDriverServer.exe");
+driver = new InternetExplorerDriver();
+BrowserName = "Internet Explorer Browser: ";
+}
+driver.get("https://www.google.com");
+
+String PageTitle = driver.getTitle();
+
+if (PageTitle.equals("Google")){
+System.out.println(BrowserName + " - Google Application Launched - Passed");
+}
+else {
+System.out.println(BrowserName + " - Google Application Not Launched -Failed"); 
+}
+driver.close();
+}
+}
+}

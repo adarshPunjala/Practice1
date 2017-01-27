@@ -1,0 +1,368 @@
+Selenium Class Notes:
+Selenium Class 1: Introduction to Selenium
+------------------------------------------
+1) What is Selenium?
+
+2) History of the Selenium Project
+
+3) Selenium's Tools Suite
+
+ Selenium IDE
+ Selenium RC
+ Selenium WebDriver
+ Selenium Grid
+-----------------------
+1) What is Selenium?
+
+• Selenium is a suite of software tools to automate Web Browsers.
+
+• It is an Open source suite of tools mainly used for Functional and Regression Test Automation.
+
+• Selenium supports various Operating environments.
+
+MS Windows
+
+Linux
+
+Macintosh etc...
+
+• Selenium supports various Browsers.
+
+Mozilla Firefox
+
+IE
+
+Google Chrome
+
+Safari
+
+Opera etc...
+
+Note: Selenium IDE supports Mozilla Firefox only.
+
+• Selenium supports various programming environments to write programs (Test scripts)
+
+Java
+
+C#
+
+Python
+
+Perl
+
+Ruby
+
+PHP
+------------------------------------------------
+2) History of the Selenium Project
+
+• Selenium first came to life in 2004.
+
+• In 2006, Selenium WebDriver was launched at Google.
+
+• In 2008, the whole Selenium team decided to merge Selenium WebDriver with Selenium RC in order to form more powerful tool called Selenium 2.0
+
+Selenium 1
+
+(Selenium IDE + Selenium RC + Selenium Grid)
+
+Selenium 2
+
+(Selenium IDE + Selenium RC + Selenium WebDriver + Selenium Grid)
+------------------------------------------------
+3) Selenium's Tools Suite
+
+i) Selenium IDE 
+
+It is a Firefox browser plug in, used to create and execute Test cases.
+
+Selenium IDE features:
+
+• Create Test Cases, Test suites (We can Record test cases or type Test steps using element locators and Selenese commands)
+
+• Edit Test Cases
+
+• Execute Test cases, Test suites
+
+• Debug Test Cases.
+
+• Enhance Test Cases
+
+• Export Test cases to other formats (java, ruby etc...)
+
+Note: selenium IDE Test case default format is .html
+--------------------------------------
+Drawbacks of Selenium IDE
+
+• It supports Mozilla Firefox browser only.
+
+• It doesn't support Programming logic/features to enhance Test cases.
+
+• It doesn't support Data Driven Testing.
+
+• It is not suitable for complex test case design.
+
+• No centralized maintenance of Objects/Elements
+---------------------------------
+ii) Selenium RC (* Out dated)
+
+iii) Selenium WebDriver
+
+• It is a Programming interface to create and execute Test cases.
+----------------------------------------
+Selenium IDE has IDE but doesn't have Programming interface
+
+Selenium WebDriver has Programming interface but doesn't have IDE
+
+UFT/QTP has both IDE as well as Programming interface
+-----------------------------------
+• Selenium WebDriver supports various programming environments to write programs.
+
+Java,
+
+C#
+
+Perl
+
+Python
+
+Ruby
+
+PHP
+
+• Using Element/Object locators/properties and Webdriver Methods we can create and execute Test cases.
+
+• Selenium Webdriver supports various browsers to create and execute test case/test script/test
+
+Note: Browser driver varies from one browser to another.
+
+• Selenium WebDriver supports various operating environments
+
+MS Windows
+
+Linux
+
+Macintosh etc...
+---------------------------
+Drawback of Selenium WebDriver
+
+• It doesn't generate detailed Test Reports.
+
+• No centralized maintenance of Object/elements
+------------------------------------------------
+iv) Selenium Grid
+
+• Selenium Grid is used to execute tests across multiple browsers, operating environments and machines in parallel.
+
+• Selenium Grid 2 supports Selenium RC Tests as well as Selenium WebDriver Tests.
+-------------------------------
+Focus on:
+----------
+i) Selenium WebDriver to create Test cases using element locators and Webdriver methods.
+
+ii) Java Programming to enhance test cases.
+
+iii) TestNG Framework to group test cases, execute test batches and generate detailed test reports.
+Selenium Class Notes:
+Selenium Class 2: Introduction to Selenium Part-2
+
+4) Selenium Supporting Environments
+
+5) Selenium License
+
+6) Testing Frameworks and Other tools used in Selenium
+
+7) Selenium Environment Setup
+
+8) Advantages of Selenium
+
+9) Disadvantages of selenium
+-------------------------------------------------
+4) Selenium Supporting Environments
+
+a) Operating Environment
+
+ MS Windows
+
+ Linux
+
+ Macintosh
+
+ Apple OX
+
+b) Application Environment
+
+ i) CUI based - Selenium doesn't support. 
+
+ ii) Windows based-Selenium doesn't support. 
+
+ iii) Web based- Selenium supports.
+
+ iv) Mobile based- Supports Mobile Applications which have Web forms.
+
+c) Programming Environment
+
+ Java
+
+ C#
+
+ Python
+
+ Perl
+
+ Ruby
+
+ PHP
+
+Note: Selenium IDE doesn't support any programming language.
+
+d) Browser Environment
+
+ Google Chrome
+
+ Mozilla Firefox
+
+ IE
+
+ Safari
+
+ Opera etc...
+
+Note: Selenium IDE supports Firefox Browser only.
+-------------------------------------------------
+5) Selenium License
+
+All Selenium Projects released under the Apache 2.0 License
+
+> Anybody can download and use all Selenium projects with free of cost.
+
+> Anybody can modify the source code and distribute the source code
+
+** Selling modified code is not allowed.
+-------------------------------------------------
+6) Testing Frameworks and Other tools used in Selenium
+
+Testing Frameworks
+
+ JUnit Framework
+
+ TestNG Framework
+
+Eclipse IDE - 
+
+> To create and execute Java programs, 
+
+> Add Selenium WebDriver .jar files to Java project and use Webdriver features.
+
+> Install TestNG/JUnit Testing Frameworks
+----------------
+
+Firebug and Firepath plug ins (Mozilla Firefox) for inspecting elements in Firefox browser.
+
+Note: Google Chrome and IE browsers have built Developer tools (F12) to inspect elements.
+
+Browser Drivers for Cross Browser Testing
+
+For Google Chrome, IE etc... Browsers, download Browser drivers and set driver path in test scripts.
+-------------------------------------------------
+7) Selenium Environment Setup
+
+Choose Selenium Tools
+
+ Selenium WebDriver to create Test cases.
+
+ Java as Programming Language
+
+ TestNG Framework as Test Runner.
+
+ Firebug and Firepath plug in for Mozilla browser to inspect Elements.
+
+ Browser Drivers etc...
+
+Configure Selenium:
+
+> Download Eclipse IDE and extract
+
+> Download Java software and Install.
+
+> Set Environment variable (Path variable).
+
+> Download Selenium WebDriver java language binding (seleniumhq.org) and add 
+  WebDriver jar file to Java project in Eclipse IDE.
+
+> Download and install Firebug and Firepath from Mozilla browser to inspect elements.
+
+> Download IE, Chrome etc... Browser drivers.
+
+> Download and install TestNG Testing Framework from Eclipse IDE
+-------------------------------------------------
+8) Advantages of Selenium
+
+ i) It is an Open source Software.
+
+ ii) It supports various Operating environments (Windows, Linux, Mac etc...)
+
+ iii) It supports various browsers (IE, Mozilla Firefox, Chrome, safari, Opera etc...)
+ 
+ iv) It supports various programming environments (Java, Perl, Python, Ruby and PHP)
+ 
+ v) It supports parallel Test execution.
+
+ vi) It uses less Hardware resources.
+-------------------------------------------------
+9) Disadvantages of Selenium
+
+ i) It supports Web based Applications only.
+
+ ii) No reliable support from anybody.
+
+ iii) No centralized maintenance of Elements/objects
+
+ iv) Difficult to setup environment.
+
+ v) Difficult to use.
+
+ vi) Limited support for Image based testing.
+
+ vii) New features may not work properly.
+
+ viii) No other tool integration for test management.
+
+ ix) No built in Reporting facility.
+-------------------------------------------------
+10) Selenium Vs. UFT
+
+   Selenium                    UFT(Formerly QTP)
+------------------------------------------------------------------------------------
+1) Open Source    Vendor tool, License is required
+----------------------------------------------------------------------------------
+2) Supports various OS environments  MS Windows only
+-------------------------------------------------------------------------
+3) Supports various Programming environments VBScript only
+---------------------------------------------------------------------------
+4) No Object Repositories   Local and Shared object Repositories
+-------------------------------------------------------------------------------------
+5) No built-in Reporting feature.  Built-in reporting feature.
+-----------------------------------------------------------------------------
+6) Selenium WebDriver has no IDE  UFT has both IDE and Programming Interface
+Selenium IDE has no Programming Interface
+-------------------------------------------------------------------------------
+7) Uses less Hardware resources  Uses more Hardware resources
+------------------------------------------------------------------------------
+8) Difficult to setup environment and use Easy to setup and use
+---------------------------------------------------------------------------
+9) Limited support for Image Testing  Rich support for Image Testing
+-----------------------------------------------------------------------------
+10) No reliable support   Support from HP
+---------------------------------------------------------------------
+11) No other tool integration    UFT can be integrated with ALM/QC for Test Management
+for Test management 
+-------------------------------------------------------------------------------------
+12) New features may not work properly New features will properly
+--------------------------------------------------------------------------- 
+13) No Add ins for supporting Application Add ins are required for supporting Application environments.
+Environments.
+--------------------------------------------------------------------
+14) Supports Web Applications only  Supports Desktop and Web Applications
+-----------------------------------------------------------------------------------
+15) No Authorized Certification  Authorized Certification program.

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Use this file to deploy some handlers/chains and services      --><!-- Two ways to do this:                                           --><!--   java org.apache.axis.client.AdminClient deploy.wsdd          --><!--      after the axis server is running                          --><!-- or                                                             --><!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   --><!--      from the same directory that the Axis engine runs         --><deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from WebS1Service WSDL service -->
+
+  <service name="WebS1" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://webServices1"/>
+      <parameter name="wsdlServiceElement" value="WebS1Service"/>
+      <parameter name="schemaQualified" value="http://webServices1"/>
+      <parameter name="wsdlServicePort" value="WebS1"/>
+      <parameter name="className" value="webServices1.WebS1"/>
+      <parameter name="wsdlPortType" value="WebS1"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation xmlns:operNS="http://webServices1" xmlns:retNS="http://webServices1" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="add" qname="operNS:add" returnQName="retNS:addReturn" returnType="rtns:int" soapAction="">
+        <parameter xmlns:pns="http://webServices1" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:i" type="tns:int"/>
+        <parameter xmlns:pns="http://webServices1" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:j" type="tns:int"/>
+      </operation>
+      <operation xmlns:operNS="http://webServices1" xmlns:retNS="http://webServices1" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="sub" qname="operNS:sub" returnQName="retNS:subReturn" returnType="rtns:int" soapAction="">
+        <parameter xmlns:pns="http://webServices1" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:i" type="tns:int"/>
+        <parameter xmlns:pns="http://webServices1" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:j" type="tns:int"/>
+      </operation>
+      <parameter name="allowedMethods" value="add sub"/>
+
+  </service>
+</deployment>

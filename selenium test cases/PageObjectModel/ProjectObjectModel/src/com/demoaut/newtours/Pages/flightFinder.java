@@ -1,0 +1,38 @@
+package com.demoaut.newtours.Pages;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.CacheLookup;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.Select;
+
+public class flightFinder {
+	WebDriver driver2;
+	
+	@FindBy(name = "passCount")
+	@CacheLookup
+	WebElement passengers;
+	
+	@FindBy(name = "airline")
+	@CacheLookup
+	WebElement airline;
+	
+	@FindBy(name = "findFlights")
+	@CacheLookup
+	WebElement sub;
+	
+	public flightFinder(WebDriver driver){
+		driver2 = driver;
+		PageFactory.initElements(driver2, this);
+	}
+	public void flight(){
+		Select x = new Select(passengers);
+		x.selectByIndex(1);
+		Select y = new Select(airline);
+		y.selectByIndex(1);
+		sub.click();
+	}
+	
+
+}

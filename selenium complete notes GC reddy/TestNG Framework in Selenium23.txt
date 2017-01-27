@@ -1,0 +1,540 @@
+Class Notes:
+Selenium Class 27: Introduction to TestNG Framework
+------------------------------------------------------------
+I) Overview
+
+II) Install TestNG and write First TestNG Test Case.
+
+III) Create multiple Test Cases and Run
+
+IV) Execute multiple programs/classes using XML
+-----------------------------------------------
+I) Overview
+
+> In Selenium using Java there are two Testing frameworks available,
+
+1) JUnit
+
+2) TestNG
+------------------------------
+TestNG Testing Framework
+
+> TestNG is a testing framework designed to simplify a broad range of Testing needs, from Unit Testing to System Testing.
+
+> Initially developed for Unit Testing, now used for all kinds of Testing.
+
+> TestNG is an open source framework, where NG stands for next generation.
+
+> TestNG inspired from Junit(Java platform) and NUnit (.NET platform), but introducing some new functionalities that make it more powerful and easier to use.
+--------------------------------------------
+Advantages of TestNG
+
+1) TestNG Annotations are easy to create Test Cases
+
+2) Test Cases can be grouped and prioritized more easily.
+
+3) Supports Parameterization.
+
+4) Supports Data driven Testing using Dataproviders.
+
+5) Generates HTML reports
+
+6) Parallel test execution is possible.
+
+7) Readily supports integration with other tools and plug ins like Eclipse IDE, build tools Ant, Maven etc...
+---------------------------------
+Note: Using TestNG we can create Test Cases, group Test Cases, prioritize Test Cases, execute Test Cases and generate Test Reports.
+---------------------------------------------
+II) Install TestNG and write first Test Case
+
+In Eclipse
+
+Help menu -> Install New Software -> Click Add
+-> Enter Name as "TestNG"
+-> Enter URL as "http://beust.com/eclipse/"
+-> Select "TestNG"
+-> Next -> Next -> Accept the Agreement -> Finish
+------------------------------------------------------
+Write TestNG Test Case
+
+Manual Test Case
+
+Test Case Name: Verify title of the Page
+
+Test Steps:
+
+1) Launch Browser
+
+2) Navigate to gmail.com
+------------------------------
+Verification point
+Capture the Page title and compare with expected
+
+Expected = Gmail
+
+Actual =
+
+Status =
+--------------------------------------------
+TestNG Test Case:
+
+public class Sample {
+@Test
+public void verifyTitle(){
+WebDriver driver = new FirefoxDriver();   
+driver.get("https://www.gmail.com");
+String pageTitle = driver.getTitle();
+Assert.assertEquals(pageTitle, "Gmail");
+}
+}
+-------------------------------------------
+Note:
+1) main method is not used for TestNG programs.
+
+2) TestNG programs contains only methods that contain @Test Annotations
+
+3) if we don't write @Test Annotations then the methods are not going to be executed.
+----------------------------------------------------------
+III) Write Multiple Test Cases
+
+public class Sample {
+@Test
+public void testA(){
+Assert.assertEquals("Gmail", "Gmail");
+}
+@Test
+public void testC(){
+Assert.assertEquals("Gmail", "Google");
+}
+@Test
+public void testB(){
+Assert.assertEquals("Yahoo", "Yahoo");
+}
+}
+
+Note: TestNG Test cases are executed in Alphabetical order,
+
+If You want to control the Test execution process then use priority attribute.
+---------------------------------------------------------------
+public class Sample {
+@Test (priority = 3)
+public void abcd(){
+Assert.assertEquals("Gmail", "Gmail");
+}
+@Test (priority = 2)
+public void xyz(){
+Assert.assertEquals("Gmail", "Google");
+}
+@Test (priority = 1)
+public void pqr(){
+Assert.assertEquals("Yahoo", "Yahoo");
+}
+}
+-------------------
+General Test Execution Flow:
+abcd
+pqr
+xyz
+-----------------
+pqr
+xyz
+abcd
+--------------------
+public class Sample {
+@Test (priority = 3)
+public void abcd(){
+Assert.assertEquals("Gmail", "Gmail");
+}
+@Test (priority = 1, enabled = false)
+public void xyz(){
+Assert.assertEquals("Google", "Google");
+}
+@Test (priority = 2)
+public void pqr(){
+Assert.assertEquals("Yahoo", "Yahoo");
+}
+}
+--------------------------------
+public class Sample {
+@Test
+public void login(){
+System.out.println("Login Successful");
+}
+@Test (dependsOnMethods = {"login"})
+public void search(){
+System.out.println("Search Successful");
+}
+@Test (dependsOnMethods = {"search"})
+public void advancedSearch(){
+System.out.println("Advanced Search Successful");
+}
+@Test (dependsOnMethods = {"advancedSearch"})
+public void logout(){
+System.out.println("Logout Successful");
+}
+}
+-------------------------------------
+Hard dependency
+@Test (dependsOnMethods ={"methodName"})
+
+Soft Dependency
+@Test (dependsOnMethods ={"methodName"}, alwaysRun=true)
+--------------------------------------------------
+public class Sample {
+public WebDriver driver;
+@Test (priority=1)
+public void launchBrowser(){
+driver = new FirefoxDriver();   
+}
+
+@Test (priority=2)
+public void verifyPageTitle1(){
+driver.get("https://www.gmail.com");
+Assert.assertEquals("Gmail", driver.getTitle());
+}
+
+@Test(priority=3)
+public void verifyPageTitle2(){
+driver.get("https://in.yahoo.com/");
+Assert.assertEquals("Yahoo", driver.getTitle());
+}
+@Test (priority=4)
+public void closeBrowser(){
+driver.close();
+}
+}
+--------------------------------------
+Test Execution Flow
+1) closebrowser
+2) launchBrowser
+3) verifyPageTitle1
+4) verifyPageTitle2
+
+Test Execution Flow (As per priorities) :
+
+1) launchBrowser
+2) verifyPageTitle1
+3) verifyPageTitle2
+4) closeBrowser
+--------------------------------------------------
+BeforeMethod and AfterMethod Annotations
+
+@BeforeMethod - Pre-condition for every Test case in a Class/Program
+@AfterMethod Post-condition for every Test case in a Class/Program
+
+Example:
+
+@BeforeMethod
+public void launchBrowser(){
+driver = new FirefoxDriver();   
+}
+
+@Test
+public void verifyPageTitle1(){
+driver.get("https://www.gmail.com");
+Assert.assertEquals("Gmail", driver.getTitle());
+}
+
+@Test
+public void verifyPageTitle2(){
+driver.get("https://in.yahoo.com/");
+Assert.assertEquals("Yahoo", driver.getTitle());
+}
+@AfterMethod
+public void closeBrowser(){
+driver.close();
+}
+}
+
+--------------------------------------
+Test Execution Flow:
+launchBrowser -pre-condition for every test case.
+closeBrowser -post-condition for every test case
+
+verifyPageTitle1
+verifyPageTitle2
+---------------------------
+launchBrowser
+verifyPageTitle1
+closeBrowser
+
+launchBrowser
+verifyPageTitle2
+closeBrowser
+---------------------------------------------
+BeforeClass and AfterClass Annotations
+ 
+@BeforeClass -Pre-condition for All Test cases in a Class/Program
+@AfterClasee -Post-condition for All Test cases in a Class/Program
+
+Example:
+
+@BeforeClass
+public void launchBrowser(){
+driver = new FirefoxDriver();   
+}
+
+@Test
+public void verifyPageTitle1(){
+driver.get("https://www.gmail.com");
+Assert.assertEquals("Gmail", driver.getTitle());
+}
+
+@Test
+public void verifyPageTitle2(){
+driver.get("https://in.yahoo.com/");
+Assert.assertEquals("Yahoo", driver.getTitle());
+}
+@AfterClass
+public void closeBrowser(){
+driver.close();
+}
+}
+---------------------------------------------------?
+Class Notes:
+Selenium Class 28: TestNG Framework in Selenium Part-2
+---------------------------------------------------------------
+Introduction to TestNG Testing Framework
+
+I) Overview
+
+II) Install TestNG and write First TestNG Test Case
+
+III) Create multiple Test Cases and execute
+---------------------------------------------
+TestNG Framework in Selenium Part-2
+
+IV) Executing multiple programs / classes using XML file
+
+V) Grouping Test Cases
+
+VI) Parallel Test Execution
+-------------------------------------------------
+IV) Executing multiple programs / classes using XML file
+--------------------------------------------------------------
+Tags in XML
+
+<suite name = "Suite Name">
+  <test name ="Test Name">
+    <classes>
+      <class name = "package.Class1Name"/>
+      <class name = "package.Class2Name"/> 
+</classes>
+</test>
+</suite>
+----------------------------------------------
+Create XML file
+
+Select Java project/Package > Right click > New > Other...
+> Enter TestNG and Select TestNG Class
+> Enter source and package names
+> Enter XML file Name
+----------------------------------
+XML File 
+
+<suite name="Ecommerce">
+  <test name="SanityTests">
+    <classes>
+      <class name="abcd.NewTest1"/>
+      <class name="abcd.NewTest2"/>
+    </classes>
+  </test> 
+</suite> 
+---------------------------
+Class 1
+
+public class NewTest1 {
+@BeforeClass
+public void login(){
+System.out.println("Login Successful");
+}
+@AfterClass
+public void logout(){
+System.out.println("Logout Successful");
+}
+@Test (priority = 1)
+public void addVendor(){
+System.out.println("Add Vendor Successful"); 
+}
+@Test(priority = 2)
+public void addProduct(){
+System.out.println("Add Product Successful"); 
+}
+@Test(priority = 3)
+public void addCurrency(){
+System.out.println("Add Currency Successful"); 
+}
+}
+----------------------------------
+Class 2
+@BeforeClass
+public void login(){
+System.out.println("Login Successful");
+}
+@AfterClass
+public void logout(){
+System.out.println("Logout Successful");
+}
+@Test (priority = 1)
+public void deleteVendor(){
+System.out.println("Delete Vendor Successful"); 
+}
+@Test(priority = 2)
+public void deleteProduct(){
+System.out.println("Delete Product Successful"); 
+}
+@Test(priority = 3)
+public void deleteCurrency(){
+System.out.println("Delete Currency Successful"); 
+}
+}
+-----------------------------------
+TestNG Annotations
+
+@Test - The annotated method is a part of a Test Case
+
+@BeforeMethod - The annotated method will be run before each Test method
+@AfterMethod - The annotated method will be run after each Test Method
+
+@BeforeClass - The annotated method will be run before the first test method in the current class is invoked.
+@AfterClass - The annotated method will be run after all the Test methods in the current class have been run.
+
+@BeforeTest - The annotated method will be run before any Test method belonging to classes inside the tag is run
+@AfterTest - The annotated method will be run after all the Test methods belonging to the classes inside the tage have run.
+-----------------------------------------------------
+V) Grouping Test Cases
+------------------------------------------
+XML File
+
+<suite name="Suite" >
+  <test name="Test">
+  <groups>
+  <run>
+  <include name = "regression"/>
+  </run>
+  </groups>
+    <classes>
+      <class name="abcd.NewTest3"/>
+      </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
+---------------------------------------------
+public class NewTest3 {
+@Test(groups = {"sanity", "regression"}, priority =1)
+public void login(){
+System.out.println("Login Successful");
+}
+@Test (groups = {"sanity"}, priority =3)
+public void fundTransfer(){
+System.out.println("Fund Transfer Successful");
+}
+@Test(groups = {"sanity"}, priority =2)
+public void search(){
+System.out.println("Search Successful");
+}
+@Test (groups = {"regression"}, priority =2)
+public void advancedSearch(){
+System.out.println("Advanced Search Successful");
+}
+@Test(groups = {"regression"}, priority =3)
+public void prePaidRecharge(){
+System.out.println("PrePaid Recharge Successful");
+}
+@Test(groups = {"regression"}, priority =4)
+public void billPayments(){
+System.out.println("Bill Payments Successful");
+}
+@Test(groups = {"sanity", "regression"}, priority =10)
+public void logout(){
+System.out.println("Logout Successful");
+}
+}
+-------------------------------------
+VI) Parallel Test Execution
+-------------------------------------
+Thread - A Thread is a concurrent unit of execution.
+
+1) Parallel Test Execution (Methods)
+
+XML File
+
+<suite name="Suite" parallel="methods" thread-count ="3">
+  <test name="Test">
+    <classes>
+      <class name="abcd.NewTest5"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
+
+Class File
+
+public class NewTest5 {
+@Test
+public void testCase1(){
+long id = Thread.currentThread().getId();
+System.out.println("Test Case 1 is Successful - Thread id is: "+ id);   
+}
+@Test
+public void testCase2(){
+long id = Thread.currentThread().getId();
+System.out.println("Test Case 2 is Successful - Thread id is: "+ id);   
+}
+@Test
+public void testCase3(){
+long id = Thread.currentThread().getId();
+System.out.println("Test Case 3 is Successful - Thread id is: "+ id);   
+}
+}
+------------------------------------
+2) Parallel Test Execution (Classes)
+
+XML File
+
+<suite name="Suite" parallel="classes" thread-count ="2">
+  <test name="Test">
+    <classes>
+      <class name="abcd.NewTest5"/>
+      <class name="abcd.NewTest6"/>
+      </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
+---------------------------------------------
+Class 1 File
+
+public class NewTest5 {
+@Test
+public void testCase1(){
+long id = Thread.currentThread().getId();
+System.out.println("Test Case 1 is Successful - Thread id is: "+ id);   
+}
+@Test
+public void testCase2(){
+long id = Thread.currentThread().getId();
+System.out.println("Test Case 2 is Successful - Thread id is: "+ id);   
+}
+@Test
+public void testCase3(){
+long id = Thread.currentThread().getId();
+System.out.println("Test Case 3 is Successful - Thread id is: "+ id);   
+}
+}
+---------------------------------------
+Class 2 File
+
+public class NewTest6 {
+@Test
+public void testCase4(){
+long id = Thread.currentThread().getId();
+System.out.println("Test Case 4 is Successful - Thread id is: "+ id);   
+}
+@Test
+public void testCase5(){
+long id = Thread.currentThread().getId();
+System.out.println("Test Case 5 is Successful - Thread id is: "+ id);   
+}
+@Test
+public void testCase6(){
+long id = Thread.currentThread().getId();
+System.out.println("Test Case 6 is Successful - Thread id is: "+ id);   
+}
+}

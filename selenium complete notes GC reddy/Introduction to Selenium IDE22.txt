@@ -1,0 +1,203 @@
+Selenium Class 26: Introduction to Selenium IDE
+------------------------------------------------------
+Selenium IDE (Integrated Development Environment)
+
+I) Overview:
+-------------------------------
+> It is a Test tool in Selenium tools suite, to develop and execute Test cases.
+
+> It is a Firefox plug in, works only on Firefox browser.
+
+> It provides Graphical user interface for Recording user actions using Firefox browser, and we can    Insert/Edit/delete statements/steps.
+
+> Firebug and Firepath are used to inspect elements or we can use Page Inspector feature to inspect elements.
+
+> Selenium IDE should only be used as a proto typing tool.
+
+(* We can't develop complex test cases using Selenium IDE)
+
+Test Step in Selenium IDE Test Case:
+
+Syntax:
+
+Command + Target + Value
+
+Command - forms the functionality of the step
+
+Target - Identifies the Element on the Web page.
+
+Value - Input data (* This is applicable only for few commands)
+----------------
+Example:
+
+Type id=Email abcd123
+
+* Selenium IDE Test case default format is .html
+
+Selenium IDE Commands are known as Selenese commands.
+-------------------------------------------------
+II) Drawbacks of Selenium IDE:
+-----------------------------------
+> Supports only Firefox Browser, doesn't support other browsers.
+
+> No flow control statements, so we can't use programming logic for enhancing test cases.
+
+> Data driven Testing is not possible.
+
+> No centralized maintenance of Elements(Objects)
+---------------------------------------
+III) Selenium IDE Installation:
+----------------------------------
+> Launch Firefox browser, download Selenium IDE from the seleniumhq.org website.
+
+> Install the Selenium IDE plug in.
+
+> Restart Firefox Browser.
+
+> After Firefox Reboots then we can use Selenium IDE.
+-----------------------------------------------
+IV) Selenium IDE Features:
+-------------------------------
+> Create a Test Case / Test Suite
+(We can create Test cases either By Recording user actions on AUT or By Typing Test steps manually)
+
+> Edit Test Cases (Insert/Modify/Delete steps)
+
+> Execute a Test Case / Test Suite
+
+> Debug Test Cases using Breakpoints.
+
+> Insert Comments.
+-----------------------------
+Menus in Selenium IDE:
+
+1) File Menu:
+
+File menu has options for Test Case and Test Suite.
+
+Using this menu:
+
+> Create New Test Case
+
+> Open Existing Test Case
+
+> Save Test Case
+
+> Export Test case in a language of our choice.
+
+Note: All these options available for Test suite also.
+-------------------------------
+2) Edit menu:
+
+It has Editor Commands;
+
+Copy
+cut
+paste
+delete
+undo etc... for editing test steps.
+Insert new command
+Insert new comment etc...
+------------------------------
+3) Actions
+
+It has options for,
+
+Record and Run Test case, Run Test suite,
+
+Insert/Remove Breakpoints,
+
+Pause/Resume Test execution etc...
+--------------------------------
+4) Options
+
+Options menu allows us to change settings, we can set timeout value etc...
+-------------------
+5) Help menu:
+
+It provides help documents for selenium IDE:
+------------------------------------------
+Test Case Pane:
+
+Our Test Script is displayed in the Test case Pane:
+
+It has 2 tabs:
+
+i) Table format (It displays commands and parameters)
+
+ii) Source format (Displays Test case in the native format (html format)
+----------------------------------------
+V) Create Test Cases in Selenium:
+---------------------------------------
+i) By Recording:
+
+During Recording it generates steps (Command and Target) for every user action 
+on AUT. It can generate verification points also.
+
+ii) Type Test steps manually
+
+Using Selenium IDE commands /Selenese commands and Element locators we can type
+ Test steps.
+-----------------------------------------------------
+VI) Important Selenium IDE Commands:
+---------------------------------------------
+A command tells Selenium what to do. Selenium commands come in three flavors: Actions, Accessors, and Assertions.
+
+i)  Actions are commands that generally manipulate the state of the application. They do things like “click this link” and “select that option”. If an Action fails, or has an error, the execution of the current test is stopped.
+
+ii) Accessors examine the state of the application and store the results in variables, e.g. “storeTitle”. They are also used to automatically generate Assertions.
+
+iii) Assertions are like Accessors, but they verify that the state of the application conforms to what is expected. Examples include “make sure the page title is X” and “verify that this checkbox is checked”.
+
+Assertion vs. Verification
+
+An “assert” will fail the test and abort the current test case, whereas a “verify” will fail the test and continue to run the test case.
+
+Commonly Used Selenese Commands:
+
+open -opens a page using a URL.
+
+click/clickAndWait -performs a click operation, and optionally waits for a new page to load.
+
+verifyTitle/assertTitle -verifies an expected page title.
+
+verifyTextPresent -verifies expected text is somewhere on the page.
+
+verifyElementPresent -verifies an expected UI element, as defined by its HTML tag, is present on the page.
+
+verifyText -verifies expected text and its corresponding HTML tag are present on the page.
+
+verifyTable -verifies a table’s expected contents.
+
+waitForPageToLoad -pauses execution until an expected new page loads. Called automatically when clickAndWait is used.
+
+waitForElementPresent -pauses execution until an expected UI element, as defined by its HTML tag, is present on the page.
+---------------------------------------------------------------
+VII) Selenium IDE Vs. Selenium WebDriver in case of Test Steps:
+-----------------------------------------------------------------------
+In Selenium IDE Test Cases can be created using Element Locators (id/name/link/xpath) and Selenese commands,
+
+Test Step Syntax:
+
+Command + Target + Value 
+
+Note: Value is only for a few commands.
+
+Example:
+
+type name=username abcds123
+
+click id=ok
+--------------------------
+In Selenium WebDriver Test Cases can be created using Element Locators(id/name/linkText/partialLinkText/className/tagName/cssSelector/xpath) and WebDriver Commands/Methods.
+
+Test Step Syntax:
+
+driverObject.webDriverCommand(By.ElementLocator("Locator Value")).WebDriverCommand/Method();
+
+Examples:
+
+driver.findElement(By.name("username")).sendkeys("abcd123");
+
+driver.findElement(By.id("Sign In")).click();
+----------------

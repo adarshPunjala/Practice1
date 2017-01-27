@@ -1,0 +1,8 @@
+
+<suite name="ParallelSuite" parallel="methods" threads-count="3">
+  <test name="ParallelTest">
+    <classes>
+      <class name="fabricate.PaallelExecution"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->

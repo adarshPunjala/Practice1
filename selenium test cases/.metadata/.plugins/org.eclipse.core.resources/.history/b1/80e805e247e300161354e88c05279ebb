@@ -1,0 +1,14 @@
+package chrome;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class gmail {
+	//public void gmailLogin(){
+		
+	public static void main(String[] args){
+	WebDriver driver = new ChromeDriver();
+		driver.get("www.google.com");
+	}
+
+}

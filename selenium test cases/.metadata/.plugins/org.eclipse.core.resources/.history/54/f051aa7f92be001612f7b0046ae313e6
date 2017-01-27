@@ -1,0 +1,16 @@
+package chrome;
+
+import java.util.Random;
+
+public class randomNo {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	Random ran = new Random();
+	int n= ran.nextInt(50)+1;
+	System.out.println(n);
+		}
+	}
+
+

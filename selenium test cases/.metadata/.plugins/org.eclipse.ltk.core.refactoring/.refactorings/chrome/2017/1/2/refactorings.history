@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;chrome/Jk.xml&apos; to &apos;testng.xml&apos;" description="Rename resource &apos;Jk.xml&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Jk.xml" name="testng.xml" stamp="1484172180837" updateReferences="true"/>
+</session>

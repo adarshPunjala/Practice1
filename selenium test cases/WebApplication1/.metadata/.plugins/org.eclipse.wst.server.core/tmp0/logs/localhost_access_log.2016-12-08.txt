@@ -1,0 +1,2 @@
+127.0.0.1 - - [08/Dec/2016:02:00:02 +0530] "GET / HTTP/1.1" 404 951
+0:0:0:0:0:0:0:1 - - [08/Dec/2016:02:00:04 +0530] "GET /WSexample1/WEB-INF/classes/Package1/packageClass1.java HTTP/1.1" 404 949

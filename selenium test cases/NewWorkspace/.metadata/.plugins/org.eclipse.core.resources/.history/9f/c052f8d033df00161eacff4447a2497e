@@ -1,0 +1,23 @@
+package Package;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
+public class dataRead {
+	public static void main(String[] args) throws Exception{
+		File src = new File("C:\\Users\\Adarsh P\\Desktop\\selenium complete notes GC reddy\\GmailCredentials.xlsx");
+		FileInputStream fis = new FileInputStream(src);
+		XSSFWorkbook wb = new XSSFWorkbook(fis);
+		XSSFSheet sheet = wb.getSheetAt(0);
+		String a =sheet.getRow(0).getCell(0).getStringCellValue();
+		String b = sheet.getRow(1).getCell(0).getStringCellValue();
+		System.out.println(a);
+		System.out.println(b);
+	}
+
+}

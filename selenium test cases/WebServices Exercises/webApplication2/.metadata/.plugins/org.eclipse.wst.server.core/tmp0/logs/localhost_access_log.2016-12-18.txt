@@ -1,0 +1,3 @@
+127.0.0.1 - - [18/Dec/2016:23:50:50 +0530] "GET / HTTP/1.1" 404 951
+127.0.0.1 - - [18/Dec/2016:23:51:14 +0530] "POST /WebApp/services/AdminService HTTP/1.0" 200 291
+127.0.0.1 - - [18/Dec/2016:23:51:14 +0530] "POST /WebApp/services/AdminService HTTP/1.0" 200 3918

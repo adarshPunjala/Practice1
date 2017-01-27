@@ -1,0 +1,9 @@
+package examples;
+
+import org.testng.annotations.Test;
+
+public class parameters {
+  @Test
+  public void f() {
+  }
+}

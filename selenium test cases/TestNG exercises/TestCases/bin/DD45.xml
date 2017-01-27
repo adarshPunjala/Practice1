@@ -1,0 +1,9 @@
+
+<suite name="DoubleTest45">
+	<test name="TestCase45">
+		<classes>
+			<class name="fabricate.Double5" />
+			<Class name="fabricate.Double4" />
+		</classes>
+	</test>
+</suite>

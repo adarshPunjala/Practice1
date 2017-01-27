@@ -1,0 +1,10 @@
+
+
+<suite name="Suite">
+  <test name="Test">
+  <parameter name="test1" value="adarsh"/>
+    <classes>
+      <class name="examples.parameters"/>
+    </classes>
+  </test> 
+</suite> 

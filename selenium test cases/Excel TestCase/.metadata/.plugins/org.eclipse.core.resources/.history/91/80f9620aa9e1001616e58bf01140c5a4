@@ -1,0 +1,24 @@
+package ExcelPackage;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.BeforeTest;
+
+public class Case1 {
+	WebDriver driver;
+	@BeforeTest
+	public void openBrowser(){
+		
+		driver = new ChromeDriver();
+		driver.get("http://newtours.demoaut.com/");
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		
+	}
+
+	
+	}
+
+

@@ -1,0 +1,30 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from MultiplicationService WSDL service -->
+
+  <service name="Multiplication" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://AssignmentPackage"/>
+      <parameter name="wsdlServiceElement" value="MultiplicationService"/>
+      <parameter name="schemaQualified" value="http://AssignmentPackage"/>
+      <parameter name="wsdlServicePort" value="Multiplication"/>
+      <parameter name="className" value="AssignmentPackage.MultiplicationSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="Multiplication"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="mul" qname="operNS:mul" xmlns:operNS="http://AssignmentPackage" returnQName="retNS:mulReturn" xmlns:retNS="http://AssignmentPackage" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:i" xmlns:pns="http://AssignmentPackage" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:j" xmlns:pns="http://AssignmentPackage" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <parameter name="allowedMethods" value="mul"/>
+
+  </service>
+</deployment>

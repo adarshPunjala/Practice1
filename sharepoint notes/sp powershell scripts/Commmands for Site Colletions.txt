@@ -1,0 +1,4 @@
+Get-SPWebTemplate
+$template = Get-SPWebTemplate "STS#0"
+New-SPSite -Url http://mevm-ms-train/Sites/Departments -OwnerAlias MELAB\SP_ADMIN -Template $template
+

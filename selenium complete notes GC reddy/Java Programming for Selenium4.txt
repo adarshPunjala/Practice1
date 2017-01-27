@@ -1,0 +1,298 @@
+Selenium Class Notes:
+Selenium Class 5: Java for Selenium
+-----------------------------------
+Java for Selenium
+
+Why Java for Selenium?
+
+> Selenium written in Java, It does mean that Java only more compatible with Selenium,  we can use other supported languages also.
+
+> Good support for Selenium with Java, You can get more help documentation and code implementations from internet.
+
+> Majority of Selenium Testers (nearly 77%) using Java, so knowledge sharing is very easy.
+
+> Java is platform independent language, we can use Java on any Operating environment.
+-------------------------------------------
+How much Java is required for selenium?
+
+> For Test Automation using Selenium Core Java is sufficient, Advanced Java is not required.
+
+> Java Fundamentals and OOPS (Object Oriented Programming System) concepts are required. 
+
+We can segregate Java for selenium in to 2 categories.
+
+A) Java Fundamentals
+
+B) Java OOPS Concepts
+---------------------------------------------------
+A) Java Fundamentals
+-------------------------------------------------
+i) Comments in Java
+
+ > To make the code Readable
+ > To make the code disable from execution.
+
+Java supports Single line comment and multiple lines comment.
+--------------------------------------------
+ii) Data Types in Java
+
+A data type is a classification of the type of data that a variable or object can hold in computer programming.
+
+Example:
+
+Integer
+
+Character
+
+String
+
+Float
+
+Boolean etc...
+
+Java supports two categories of Data types
+
+a) Primitive Data Types
+
+b) Reference Data Types
+----------------------------------------
+iii) Java Modifiers
+
+Modifiers are used to set access levels for Classes, Variables, and Methods etc...
+
+a) Access Modifiers (Default, Public, Private and Protected)
+
+b) Non Access Modifiers(Static, Final, Abstract, Synchronized etc...)
+----------------------------------------------------
+iv) Variables in Java
+
+> A named memory location to store temporary data within a program
+
+Three types of Variables in Java
+
+a) Local Variables
+
+b) Instance variables
+
+c) Class / Static Variables
+------------------------------------
+v) Operators in Java
+
+Operators are used to perform Mathematical, Comparison and Logical operations.
+
+Categories of operators
+
+a) Arithmetic Operators
+
+b) Relational Operators
+
+c) Bitwise Operators
+
+d) Logical Operators
+
+e) Assignment Operators
+
+f) Miscellaneous Operators
+-----------------------------------------
+Flow Control Statements
+ Conditional Statements
+ Loop Statements
+
+vi) Conditional Statements
+
+a) If Statement
+
+b) Switch Statement
+------------------
+Types of Condition
+
+a) Single Condition (Positive/Negative)
+
+b) Compound Condition
+
+c) Nested condition
+-----------------------
+Usage of Conditional Statements
+
+a) Execute a block of statements when condition is True.
+
+b) Execute a block of statements when condition is True, otherwise execute another block of statements.
+
+c) Decide among several alternates (Else If)
+
+d) Execute a block of statements when more than one condition is True.(nested If)
+
+e) Decide among several alternates (Switch statement)
+-------------------------------------------------
+vii) Loop Statements
+
+Used for Repetitive execution.
+
+Four Types of Loop structures in Java
+
+a) For loop
+
+b) While loop
+
+c) Do While loop
+
+d) Enhanced For loop (arrays)
+------------------------------------------------
+viii) Arrays in Java
+
+> Generally, Array is a collection of similar type of elements.
+
+> In Java, Array is an Object that contains elements of similar data types.
+
+> Java Array is index based, index starts from Zero.
+
+> The length of an Array is established when the Array is created and Array length is fixed.
+
+> Each item in an Array is called an Element.
+---------------------------------------------
+ix) Java Methods
+
+Methods are also known as Functions.
+
+In structured programming (Ex: C Language) we use Functions(Built-in and User defined),
+In Object oriented programming we use Methods (Built-in and User defined).
+
+Basically Methods are Two types.
+
+a) Built in Methods
+ Number Methods
+ Character methods
+ String Methods
+ Date & Time Methods
+ etc...
+
+b) User defined Methods
+ Method with returning value
+ Method without returning any value.
+--------------------------------
+x) Regular Expressions
+ 
+> It is a Formula for matching patterns, A Regular expression defines search pattern for Strings.
+
+Java provides java.util.regex package for pattern matching.
+----------------------------------------
+xi) IO Operations and File handling in Java
+-------------------------------
+The java.io package contains classes to perform Input and Output operations.
+
+> Read data using Input devices.
+
+> Display output on the Console.
+
+> Read and Write Text files and other file.
+
+Using Java File class we can handle Text files.
+--------------------------------------------
+xii) Exception handling In Java
+
+In Computer programming, Exception is an abnormal condition.
+
+> An exception is an event that occurs during the execution of a program that disturbs the normal flow of instructions.
+
+> The exception handling in java is one of the powerful mechanism to handle the Run-time errors so that normal flow of the program can be maintained.
+-------------------------------------------
+B) Java Object Oriented programming System (OOPS) concepts.
+
+Four Fundamentals of OOPS
+
+i) Inheritance
+
+ii) Polymorphism
+
+iii) Abstraction
+
+iv) Encapsulation
+------------------------------------
+i) Inheritance
+
+> Inheritance is a mechanism in which one Object acquires all the properties and behaviors of Parent object.
+
+> using Inheritance we can create Classes that are built in upon existing classes.
+
+> When we Inherit from an existing class, then we can reuse Methods and fields from
+Parent class and we can add new methods and fields.
+
+Java Supports:
+
+a) Single Inheritance
+
+b) Multi Level Inheritance
+
+c) Hierarchal Inheritance
+
+Note: Java doesn't support Multiple Inheritance.
+-----------------------------------------------------------
+ii) Polymorphism
+
+Performing task/s in different ways.
+
+Polymorphism derived from two Greek words,
+
+Poly-means Many
+
+Morphs -means forms/ways
+
+So polymorphism means many ways.
+
+Two types of Polymorphism in Java
+
+a) Compile Time Polymorphism
+
+b) Run-time Polymorphism
+
+Note: We can achieve Polymorphism by Method Overloading and Method Overriding.
+-------------------------------------------------------------
+iii) Abstraction
+
+> Abstraction is a process of hiding the implementation details and showing functionality to the user.
+
+> In another way it shows important things to the user and hides internal details.
+
+Ex: Sending email
+
+> Abstraction focuses on what the Object does instead of how it does.
+
+Abstraction can be achieved in two ways
+
+a) Abstract Class(0 to 100%) 
+
+b) Interface (100%)
+-------------------------------------------
+iv) Encapsulation
+
+> Encapsulation is a process of wrapping code and data together into a single unit.
+
+Ex: Capsule (mixed of several medicines)
+
+It provides control over the data.
+-----------------------------------------------------
+Java Packages
+
+A Java package is a similar type of classes, interfaces and sub packages.
+
+Two types of Packages in Java
+
+a) Built in Packages
+
+Ex: io, util, sql etc...
+
+b) User defined Packages
+--------------------------------------
+Interfaces in java
+
+> An interface is a collect of abstract methods.
+
+> An Interface is not a class, writing an interface is similar to writing a class, but two are different concepts.
+-----------------------------------
+Java Programming hierarchy
+
+Java Project
+ > Java Package
+   >Java class/ Java Interface
+
+Note: We write Java code in the Class or Interface.

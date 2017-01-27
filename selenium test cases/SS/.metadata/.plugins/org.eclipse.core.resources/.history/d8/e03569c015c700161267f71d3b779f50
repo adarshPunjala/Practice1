@@ -1,0 +1,26 @@
+package RealTimePackage;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+public class SeleniumHQ {
+	public static void main(String [] args){
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\Adarsh P\\Desktop\\selenium-java-3.0.1\\chromedriver_win32\\chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+		driver.get("http://seleniumhq.github.io/selenium/docs/api/java/index.html");
+		Screenshot.screenshot(driver, "Launched app");
+		driver.switchTo().frame(1);
+		Screenshot.screenshot(driver, "Frame switched");
+		driver.findElement(By.className("interfaceName")).click();
+		driver.switchTo().frame(2);
+		Screenshot.screenshot(driver, "Frame 2");
+		System.out.println("frame 2");
+		driver.findElement(By.linkText("ScrollAction"));
+		Screenshot.screenshot(driver, "ScrollAction Page");
+		System.out.println("ScrollAction Page");
+		driver.close();
+	}
+
+}

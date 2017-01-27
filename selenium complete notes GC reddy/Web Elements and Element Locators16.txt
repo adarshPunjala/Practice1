@@ -1,0 +1,281 @@
+Selenium Class 17: Web Elements and Element Locators
+----------------------------------------------------
+i) Web Elements
+
+ii) Element Locators
+--------------------------------
+i) Web Elements
+--------------------------------
+Browser
+Page
+-----------
+Edit box
+Link
+Button
+Image, Image link, Image button
+Text Area
+Check box
+Radio Button
+Drop down box
+List box
+Combo box
+Web Table /HTML Table
+Frame
+------------------------------
+1) Operations on Browser
+------------------------------
+> Launch Browser
+> Navigate to specified URL
+> Close focused Browser
+> Close all opened Browsers 
+-------------
+> Navigate from one URL to another
+> Navigate back
+> Navigate forward
+> Refresh the Browser
+> Maximize the Browser etc...
+------------------------------
+2) Page
+------------------------------
+> Get Page Title
+> Get Page source
+> Get Page URL etc...
+------------------------------
+3) Operations on Edit box
+------------------------------
+> Enter some value
+> Clear the value
+> Check the existence
+> Check enabled status
+> Get the Value etc...
+------------------------------
+4) Operations on Link 
+------------------------------
+> Click
+> Check the existence
+> Check enabled status
+> Return Link name etc...
+------------------------------
+5) Operations on Image
+------------------------------
+a) General Image
+
+b) Image Button (Submits)
+
+c) Image Link (Click, Redirects to another page/location)
+------------------------------
+6) Operations on Check box
+------------------------------
+> Check if the check box is displayed or not?
+> Check if the check box is enabled or not?
+> Select
+> Unselect
+------------------------------
+7) Operations on Button
+------------------------------
+> Click
+> Check enabled statues
+> Check Displayed status etc...
+------------------------------
+8) Operations on Text Area
+------------------------------
+> Return / Capture Text Area
+
+9) Operations on Radio Button
+------------------------------
+> Select Radio Button
+
+> Check the existence
+
+> Check the enabled status
+
+> Verify if the Radio button is Selected or not?
+------------------------------
+10) Operations on Drop down box
+------------------------------
+> Select an Item
+
+> Check the existence
+
+> Check the enabled status
+
+> Items Count
+------------------------------
+11) Operations List Box
+------------------------------
+> Select one more items
+
+> Items count
+
+> Check the existence
+
+> Check the enabled status
+-------------------------------
+12) Operations on Combo box (Drop down and Edit/Text box)
+------------------------------
+> Select an item
+
+> Enter an item
+
+> Check the existence
+
+> Check the enabled status
+--------------------------------------
+13) Operations on Web Table /HTML Table
+------------------------------
+> Get cell value
+
+> Rows count
+
+> Cells count etc...
+--------------------------------
+14) Operations on Frame
+------------------------------
+> Switch from Top window to a frame
+> Switch from a frame to Top window.
+------------------------------
+ii) Element Locators
+------------------------------
+IN UFT/QTP
+
+Object Property value
+Page title Google
+
+In Selenium
+
+Element  Locator value
+Edit box name Email
+---------------------------------
+What is Locator?
+
+> It is an address that identifies a web element uniquely within the web page
+
+Selenium supports 8 Element locators to recognize Elements
+
+id,
+
+name,
+
+className,
+
+tagName,
+
+linkText,
+
+partialLinkText,
+
+cssSelecotor,
+
+xpath  
+to find elements on Web Pages.
+------------------------------
+Why we need to use different locators?
+
+1) Developers may not provide all locators for all elements.
+
+2) Some locators may be duplicated.
+
+How to inspect elements?
+
+Using Firebug and Firepath pulg ins we can inspect elements in Mozilla Firefox
+
+If it is Google chrome or IE, no need to install any plug in, they have built in developer tools(F12)
+-------------------------------------------
+Note: Element Locators are common for all Browsers (Mozilla Firefox/Chrome/IE)
+------------------------------
+1) id
+
+Syntax:
+
+By.id("id value")
+
+Example:
+
+driver.findElement(By.id(("Email"))
+----------
+driver - is Object
+
+findElement -Webdriver Method/command 
+
+By- Class
+
+id - Locator
+
+Email - value
+--------------------------------
+driver.findElement(By.id("Email")).sendKeys("India");
+driver.findElement(By.id("Email")).clear();
+Or 
+
+WebElement Email = driver.findElement(By.id("Email"));
+Email.sendKeys("London");
+Email.clear();
+
+Note: Whenever we want to perform multiple operations on any element then choose 2nd syntax.
+---------------------------------------
+2) name
+
+Syntax:
+
+By.name("value")
+
+Example
+
+driver.findElement(By.name("Email"))
+--------------------------
+3) className
+
+Syntax:
+
+By.className("value")
+
+Example:
+
+driver.findElement(By.className("textboxcolor")).sendKeys("India");
+-------------------------------------------
+4) tagName
+
+Syntax:
+
+By.tagName("value")
+
+Example:
+
+driver.findElement(By.tagName("input")).sendKeys("India");
+------------------------------------
+5) linkText
+
+Syntax:
+
+By.linkText("value")
+
+driver.findElement(By.linkText("Gmail")).click();
+
+----------------------------------
+6) partialLinkText
+
+Syntax:
+
+By.partialLinkText("value")
+
+driver.findElement(By.partialLinkText("Gma")).click();
+---------------------------
+7) cssSelector
+
+Syntax:
+
+By.cssSelector("value")
+
+Example:
+
+driver.findElement(By.cssSelector(".gb_P")).click();
+---------------------------------------
+8) xpath (XPath in XML document shows the direction of Web Application's element location)
+
+Syntax:
+
+By.xpath("value")
+
+Example:
+
+driver.findElement(By.xpath(".//*[@id='gbw']/div/div/div[1]/div[1]/a")).click();

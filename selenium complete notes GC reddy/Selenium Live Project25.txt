@@ -1,0 +1,212 @@
+Class Notes:
+Selenium Class 30: Selenium Project
+----------------------------------------
+Functional Test Automation using Selenium
+
+Project Info:
+--------------
+Project Domain: Ecommerce
+
+Sub-Domain: B2C (Business to Customer)
+
+Application: Online Shopping Portal 
+
+Application Environment: LAMP (Linux, Apache, MySQL, PHP)
+
+Production: Internet Public Application
+
+Test Environment: Intranet (Company Local Network)
+
+Project Description:
+----------------------
+This web portal provides interface in between Vendors/Manufacturers and Customers,
+Vendors place their products and sell,
+Customer view products and Buy products,
+Financial service providers provider money transfers,
+Courier server providers ship products from Vendors to Customers.
+--------------------------
+Stake holders of the Project
+------------------------------
+i) Web portal owner
+ii) Manufacturers/Vendors
+iii) Financial service Providers
+iv) Courier service Providers
+v) Customers etc...
+-----------------------------
+Two Interfaces of the Application
+
+i) Admin Interface /Server side interface
+ii) User Interface/Client side Interface
+
+i) Admin Interface 
+---------------------
+Users:
+Project Admin
+Vendors
+Courier service Providers
+Financial service Providers etc...
+
+Admin URL:
+
+www.gcrit.com/build3/Admin
+------------------
+http://gcrit.com/build3/
+
+User: admin
+Password: admin@123
+
+gcrit.com -Web Domain
+
+build3 - Folder
+
+Admin -Sub Folder
+-----------------------
+http://english.tupaki.com/
+
+tupaki.com -Web Domain
+english - Sub Domain
+--------------------------------------------
+Features to be Tested in Admin Interface
+--------------------------------------------
+i) Redirect from Admin interface to user Interface
+
+ii) Admin Login
+
+iii) Redirect from Admin interface to user Interface after Login
+
+iv) Add/Edit/Delete Manufacturers (Portal Admin)
+
+v) Add /Edit/Delete Categories (Manufacturers)
+
+vi) Add /Edit/Delete Products (Manufacturers)
+
+vii) Add/Edit/Delete/Set as Default Currency (Portal Admin)
+
+viii) Orders Status (Portal Admin/Manufacturers)
+
+ix) Product Reports(Portal Admin/Manufacturers)
+
+x) Customer Reports(Portal Admin/Manufacturers)
+------------------------------------------------------------
+Features to be Tested in User Interface
+-------------------------------------------
+Users: 
+Guest users (Launch Application, View Products, Search Products)
+Registered Users (Launch Application, View Products, Search Products, Buy Products etc...)
+
+i) Launch Application
+
+ii) Search Products
+
+iii) Customer Registration
+
+iv) Customer Login
+
+**v) Track Orders status, Return Products
+
+vi) Buy Products (Add/Delete products, Currency, Add /Edit Quantity, Discounts, Select payment option, Check out)
+------------------------------------
+Sanity Tests for Admin Interface
+
+*Sanity Tests for User Interface
+
+Business flows in User interface
+
+*Business flows in User interface
+-------------------------------------------
+Sanity Tests for Admin Interface
+-----------------------------------
+i) Admin/Manufacturer Login
+
+ii) Admin/Manufacturer Logout
+
+iii) Add Category
+
+iv) Add Product
+
+v) Add Currency etc...
+-----------------------------------
+Test Execution Levels
+ Sanity Testing on Initial build
+ Comprehensive Testing 
+ Sanity Testing on Modified build
+ Regression Testing Cycle 1
+ .
+ .
+ .
+ Final Regression
+------------------------------------
+Business flows in User interface
+-----------------------------------
+i) Launch Application + View products + Close Application
+
+ii) Launch Application + View products + Search products + Close Application
+
+iii) Launch Application + View products +  Search products + Registration + Buy products + Close Application
+
+iv) Launch Application + View products + Search products + Buy Products + Login + Close Application
+
+v) Launch Application + View products + Buy Products (Register) , Checkout + Close Application
+
+vi) Launch Application + Registration + Close Application
+
+vii)Launch Application + Close Application
+
+viii) Launch Application + Add to Cart (Without Check out) + Close Application Etc...
+----------------------------------------
+Comprehensive Tests for Admin Interface
+-----------------------------------------------
+i) Launch Application
+
+ii) Redirect to User Interface 
+
+iii) Existence of Elements
+
+iv) Admin Login 
+Note: In two ways we can verify admin Login
+ i) Using Positive and Negative Test Cases
+ ii) Using Data Driven Testing
+
+v) Admin Logoff
+
+vi) Existence of Elements after Login
+
+vii) Add Manufacturer
+
+viii) Edit Manufacturer
+
+ix) Delete Manufacturer
+
+x) Add Category
+
+xi) Edit Category
+
+xii) Delete Category
+
+xiii) Add product
+
+xiv) Edit product
+
+xv) Delete product 
+Etc...
+--------------------------------------
+Comprehensive Tests for User Interface
+-----------------------------------------------
+i) Launch Application
+
+ii) Existence of Elements 
+
+iii) Customer Registration
+
+iv) Customer Login
+
+v) Logout 
+
+vi) Buy Products
+Etc...
+---------------------------------------------------
+Test Automation
+
+i) Automate the Test Cases using Selenium WebDriver and Java Programming
+And 
+ii) Automate the Test Cases using Selenium WebDriver , Java Programming and TestNG

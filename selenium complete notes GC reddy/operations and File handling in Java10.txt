@@ -1,0 +1,243 @@
+Selenium Class 11: IO Operations and File handling in Java
+-----------------------------------------------------------------
+i) Input and Output Operations
+
+ii) File Handling in Java
+
+iii) Exception Handling in Java
+-------------------------------------
+i) Input and Output Operations
+-------------------------------------
+There three ways available for reading input.
+
+a) Scanner 
+
+b) DataInputStream
+
+c) BufferedReader
+------------------------------
+Using java.util.Scanner is the easier way and it includes many methods to check input is valid to read.
+
+Example for Reading Input:
+
+public static void main (String [] args){
+
+Scanner scan = new Scanner(System.in); //System.in is an input stream
+ 
+System.out.println("Enter Your Name");
+String name = scan.nextLine();
+System.out.println("You are Name is "+name);
+ 
+System.out.println("Enter Your City");
+String city = scan.next();
+System.out.println("Your City is "+ city);
+ 
+System.out.println("Enter a Number");
+int num = scan.nextInt();
+System.out.println("Your Number is "+num);
+ 
+System.out.println("Enter a Mobile Number");
+long num2 = scan.nextLong();
+System.out.println("Your Mobile Number is "+num2);
+  
+System.out.println("Enter a Value");
+double num3 = scan.nextDouble();
+System.out.println("Your Value is "+num3);
+ 
+System.out.println("Enter a Character");
+char a = scan.next().charAt(0);
+System.out.println("Your Char is "+a);
+ 
+System.out.println("Enter a Value");
+boolean val = scan.nextBoolean();
+System.out.println("Your Value is "+val);
+
+scan.close();
+--------------------------------------------------
+Display Output on the Console
+
+int a=10, b=20;
+System.out.println("Welcome to Selenium");//Welcome to Selenium
+System.out.println("Value b is "+b); //Value b is 20
+System.out.println("Value a is "+a + " Value b is "+b); //Value a is 10 Value b is 20
+-------------------------------------
+ii) File Handling in Java
+-------------------------------------
+Using File Class we can handle Computer files.
+
+Examples
+
+1) Create a Folder
+
+public static void main (String [] args){
+File fileObject = new File("C:/Users/gcreddy/Desktop/Selenium");
+fileObject.mkdir();
+} 
+
+2) Check the existence of Selenium Folder.
+
+public static void main (String [] args){
+File fileObject = new File("C:/Users/gcreddy/Desktop/Selenium");
+boolean a = fileObject.exists();
+  
+if (a == true){
+System.out.println("Folder Exists");
+}
+else {
+System.out.println("Folder Not Exists");
+}
+}  
+-------------------------------------------------
+3) Delete a Folder
+
+public static void main (String [] args){
+File fileObject = new File("C:/Users/gcreddy/Desktop/Selenium");
+fileObject.delete();
+}  
+-------------------------------------
+4) Create a Text File
+
+public static void main (String [] args) throws IOException{
+File fileObject = new File("C:/Users/gcreddy/Desktop/UFT2.xls");
+fileObject.createNewFile();
+}  
+
+5) Delete a Text File
+
+public static void main (String [] args) throws IOException{
+File fileObject = new File("C:/Users/gcreddy/Desktop/UFT.txt");
+fileObject.delete();
+}  
+-------------------------------------
+iii) Exception Handling in Java
+-------------------------------------
+> An exception is an event, it occurs during execution of a program, when normal execution of the program is interrupted.
+
+> Exception handling is mechanism to handle exceptions.
+
+Common scenarios where exceptions may occurs
+
+1) Scenario where Arithmeticexception occurs
+If we divide any number by Zero then Arithmeticexception occurs
+
+Ex: 
+int a =10/0;
+--------------------------
+2) Scenario where NullPointerexception occurs.
+
+if we have no value in any variable, performing any operation by the variable.
+
+Ex:
+
+String s =null;
+
+System.out.pritln(s.length()); //NullPointerexception
+--------------------------
+3) Scenario where NumberFormatException occurs
+
+The wrong formating of any value.
+
+Ex:
+
+String s = "abc";
+int a = Integer.parseInt(s);
+System.out.pritln(y);//NumberFormatException
+--------------------------
+// Convert Data from String type to Integer
+
+public static void main (String [] args) {
+
+Scanner scan = new Scanner(System.in);
+
+System.out.println("Read two Numbers");
+String s1= scan.nextLine();
+String s2= scan.nextLine();
+
+int a = Integer.parseInt(s1);
+int b = Integer.parseInt(s2);
+System.out.println(a+b);
+
+scan.close();
+---------------------------
+4) Scenario where ArrayIndexOutOfBounds exception occurs.
+
+if we insert any value in the wrong index.
+
+Ex:
+int [] a = new int [5];
+a[100] = 123; 
+System.out.println(a[100]); ArrayIndexOutOfBounds
+----------------------------
+Example:
+
+public static void main (String [] args) {
+int a =10;
+int b = 0;
+ 
+int result = a/b;
+System.out.println(result);
+System.out.println("Hello Java");
+System.out.println("Hello Selenium");
+}
+----------------------------
+Use try catch block
+
+Syntax:
+
+try{
+Statements
+-----
+------
+}
+catch (Exception name){
+Exception handling code
+}
+-------------------------
+Example:
+
+public static void main (String [] args) {
+int a =10;
+int b = 0;
+ 
+try
+{
+int result = a/b;
+System.out.println(result);
+}
+catch (ArithmeticException e){
+System.out.println("Divided by Zero Error"); 
+}
+System.out.println("Hello Java");
+System.out.println("Hello Selenium");
+}
+-----------------------------
+// Handling multiple exceptions
+
+public static void main (String [] args) {
+int a =10;
+int b = 0;
+ 
+int abc [] = new int[4];
+ 
+try
+{
+int result = a/b;
+System.out.println(result);
+}
+catch (ArithmeticException e1){
+System.out.println("Divided by Zero Error"); 
+}
+
+System.out.println("Hello Java");
+ 
+try
+{
+abc[30]=200;
+System.out.println(abc[30]); 
+}
+catch (ArrayIndexOutOfBoundsException e2){
+System.out.println("Array Index Out of Bounds Error");
+}
+
+System.out.println("Hello Selenium");
+}

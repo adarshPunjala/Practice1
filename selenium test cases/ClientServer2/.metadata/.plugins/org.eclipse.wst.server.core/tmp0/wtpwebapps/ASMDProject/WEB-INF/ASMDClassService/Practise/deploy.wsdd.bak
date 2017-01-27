@@ -1,0 +1,42 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from ASMDClassService WSDL service -->
+
+  <service name="ASMDClass" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://Practise"/>
+      <parameter name="wsdlServiceElement" value="ASMDClassService"/>
+      <parameter name="schemaQualified" value="http://Practise"/>
+      <parameter name="wsdlServicePort" value="ASMDClass"/>
+      <parameter name="className" value="Practise.ASMDClassSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="ASMDClass"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="add" qname="operNS:add" xmlns:operNS="http://Practise" returnQName="retNS:addReturn" xmlns:retNS="http://Practise" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:i" xmlns:pns="http://Practise" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:j" xmlns:pns="http://Practise" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="mul" qname="operNS:mul" xmlns:operNS="http://Practise" returnQName="retNS:mulReturn" xmlns:retNS="http://Practise" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:i" xmlns:pns="http://Practise" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:j" xmlns:pns="http://Practise" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="sub" qname="operNS:sub" xmlns:operNS="http://Practise" returnQName="retNS:subReturn" xmlns:retNS="http://Practise" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:i" xmlns:pns="http://Practise" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:j" xmlns:pns="http://Practise" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="div" qname="operNS:div" xmlns:operNS="http://Practise" returnQName="retNS:divReturn" xmlns:retNS="http://Practise" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:i" xmlns:pns="http://Practise" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:j" xmlns:pns="http://Practise" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <parameter name="allowedMethods" value="add div sub mul"/>
+
+  </service>
+</deployment>

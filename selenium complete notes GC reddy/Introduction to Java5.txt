@@ -1,0 +1,122 @@
+Class Notes:
+Selenium Class 6: Introduction to Java
+------------------------------------------
+i) Introducing Java Programming Language
+
+ii) Java Environment Setup
+
+iii) Java Program Structure/Java Syntax
+------------------------------------------------
+i) Introducing Java Programming Language
+------------------------------------------------
+> Java Programming Language was developed by Sun Microsystems in 1995, Now it is 
+subsidiary of Oracle corporation.
+
+> Java is an Object Oriented Programming Language, In Java everything is object, Java
+can be easily extended since it is based on the object model.
+
+> Java is a Platform independent language, It can be compiled and interpreted.
+
+> Java is Simple easy to learn and implement.
+
+> Java is Securable, Using Java we can develop virus free and tamper free systems.
+---------------
+Usage of Java
+------------------
+> Developing Desktop Applications (Ex: Acrobat Reader)
+
+> Developing web Applications
+
+> Developing Enterprise Application (Ex: Banking, Insurance Applications etc...)
+
+> Developing Mobile Applications
+
+> Developing Embedded Systems.
+
+> Smart Cards
+
+> Games software etc...
+----------------------
+> Test Automation
+
+Java Syntax
+-------------
+> Java is case sensitive language
+
+> First letter of Class Name should be in Upper case
+
+> Method names should start with lower case letter.
+
+> Java program file name should exactly match with class name.
+
+> Java Program execution starts from main method, which is mandatory in every Java program.
+
+> Every Statement should end with semi colon symbol.
+
+> Code blocks enclosed with {}
+------------------------------------------------
+ii) Java Environment Setup
+------------------------------------------------
+Steps:
+
+> Download Java Software (JDK) and Install.
+
+> Set Environment Variable (Path Variable).
+
+> Download Eclipse IDE and Extract.
+-------------------------------------
+In Computer Programming we have Three steps
+
+i) Writing a Program.
+
+ii) Compiling the Program
+
+iii) Run /Execute the Program
+
+Step 1: Writing a Program.
+
+public class Sample{
+public static void main(String [] args) {
+System.out.println ("Hello Java World");
+}
+}
+-----------------------
+Step 2: Compiling the Program
+
+Change to Java program file directory.
+
+Type javac Sample.java
+
+(* it creates Java class file)
+----------------------------------
+Step 3: Run /Execute the Java program
+
+Type java Sample
+------------------------------------------------
+In Test Automation using Selenium, we use an Integrated Development Environment (IDE) like
+Eclipse IDE.
+
+> Eclipse IDE (Integrated Development Environment)
+
+> Eclipse IDE is a platform to create and Run /execute programs like Java, Perl, Python,
+Ruby, PHP etc...
+
+> Eclipse IDE is open source (eclipse Public License)
+
+It provides Editor, help for Syntax, context help, auto compilation, debugging etc....
+----------------------------------------------
+Download Eclipse IDE and Extract.
+
+Write and Execute a Java program using Eclipse IDE
+
+Steps:
+
+> Launch Eclipse IDE
+
+> Create Java Project
+
+> Create Java Package
+
+> Create Java Class
+
+Write java code in the Class file and Run

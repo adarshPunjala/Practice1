@@ -1,0 +1,16 @@
+package chrome;
+
+import java.util.Random;
+
+public class randomNo {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	Random rand = new Random();
+	int max = 50;
+	int min = 0;
+	int value = rand.nextInt((max - min)+1)+ min;
+	}
+
+}

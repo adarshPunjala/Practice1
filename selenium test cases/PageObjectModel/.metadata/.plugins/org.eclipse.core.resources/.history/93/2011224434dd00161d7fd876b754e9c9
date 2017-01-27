@@ -1,0 +1,16 @@
+package com.demoaut.newtours.TestScripts;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.BeforeTest;
+
+public class newTours {
+	WebDriver driver;
+	@BeforeTest
+	public void demoaut(){
+		driver = new ChromeDriver();
+		driver.get("http://newtours.demoaut.com/");
+		driver.manage().window().maximize();
+	}
+
+}

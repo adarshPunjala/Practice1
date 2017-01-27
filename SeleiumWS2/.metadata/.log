@@ -1,0 +1,53 @@
+!SESSION 2017-01-26 03:46:03.816 -----------------------------------------------
+eclipse.buildId=4.5.0.I20150603-2000
+java.version=1.8.0_111
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_IN
+Framework arguments:  -product org.eclipse.epp.package.jee.product -product org.eclipse.epp.package.jee.product -product org.eclipse.epp.package.jee.product -product org.eclipse.epp.package.jee.product -product org.eclipse.epp.package.jee.product -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product -product org.eclipse.epp.package.jee.product -product org.eclipse.epp.package.jee.product -product org.eclipse.epp.package.jee.product -product org.eclipse.epp.package.jee.product -data C:\Users\Adarsh P\Desktop\Practice WorkSpaces\SeleiumWS2 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.egit.ui 2 0 2017-01-26 03:46:33.091
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\Adarsh P'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.testng.eclipse 1 0 2017-01-26 04:07:24.876
+!MESSAGE [TestNGLaunchShortcut] Examining Java element:[Working copy] testCaseSelenium.java [in projectJenkins1 [in src [in projectJenkins1]]]
+  package projectJenkins1
+  import org.openqa.selenium.By
+  import org.openqa.selenium.WebDriver
+  import org.openqa.selenium.chrome.ChromeDriver
+  import org.testng.annotations.Test
+  class testCaseSelenium
+    void login()
+
+!ENTRY org.eclipse.equinox.registry 4 1 2017-01-26 04:07:26.476
+!MESSAGE Plug-in "org.testng.eclipse.maven" was unable to instantiate class "org.testng.eclipse.maven.MavenTestNGLaunchConfigurationProvider".
+!STACK 0
+java.lang.NoClassDefFoundError: org/codehaus/plexus/interpolation/InterpolationException
+	at java.lang.Class.getDeclaredConstructors0(Native Method)
+	at java.lang.Class.privateGetDeclaredConstructors(Class.java:2671)
+	at java.lang.Class.getConstructor0(Class.java:3075)
+	at java.lang.Class.newInstance(Class.java:412)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:184)
+	at org.eclipse.core.internal.registry.ExtensionRegistry.createExecutableExtension(ExtensionRegistry.java:905)
+	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:243)
+	at org.eclipse.core.internal.registry.ConfigurationElementHandle.createExecutableExtension(ConfigurationElementHandle.java:55)
+	at org.testng.eclipse.TestNGPlugin.getLaunchConfigurationProviders(TestNGPlugin.java:359)
+	at org.testng.eclipse.ui.util.ConfigurationHelper.getJvmArgs(ConfigurationHelper.java:171)
+	at org.testng.eclipse.launch.TestNGLaunchConfigurationDelegate.launchTypes(TestNGLaunchConfigurationDelegate.java:159)
+	at org.testng.eclipse.launch.TestNGLaunchConfigurationDelegate.launch(TestNGLaunchConfigurationDelegate.java:91)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:885)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:739)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1039)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1256)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: java.lang.ClassNotFoundException: org.codehaus.plexus.interpolation.InterpolationException cannot be found by org.testng.eclipse.maven_6.9.13.201609291640
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:439)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:352)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:344)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.loadClass(ModuleClassLoader.java:160)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:357)
+	... 17 more

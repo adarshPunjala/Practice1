@@ -1,0 +1,6 @@
+package chrome;
+
+import abc.Training1;
+
+public  class Training2 extends Training1{
+}

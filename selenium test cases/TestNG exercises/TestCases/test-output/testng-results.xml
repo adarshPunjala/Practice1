@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Suite" duration-ms="85" started-at="2016-12-10T16:13:15Z" finished-at="2016-12-10T16:13:15Z">
+    <groups>
+    </groups>
+    <test name="Test" duration-ms="85" started-at="2016-12-10T16:13:15Z" finished-at="2016-12-10T16:13:15Z">
+      <class name="examples.parameters">
+        <test-method status="PASS" signature="f(java.lang.String)[pri:0, instance:examples.parameters@42d80b78]" name="f" duration-ms="47" started-at="2016-12-10T21:43:15Z" finished-at="2016-12-10T21:43:15Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[adarsh]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- f -->
+      </class> <!-- examples.parameters -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
+</testng-results>

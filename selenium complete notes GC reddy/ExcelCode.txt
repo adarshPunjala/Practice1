@@ -1,0 +1,8 @@
+public static void main(String[] args) throws Exception {
+		File f = new File("C:\\Users\\Adarsh P\\Desktop\\selenium test cases\\Excel TestCase\\seleniumexcel.xlsx");
+        FileInputStream FIS = new FileInputStream(f);
+        XSSFWorkbook wb = new XSSFWorkbook(FIS);
+       XSSFSheet sheet1 = wb.getSheetAt(0);
+	String a= sheet1.getRow(1).getCell(1).getStringCellValue();
+	System.out.println(a);
+	

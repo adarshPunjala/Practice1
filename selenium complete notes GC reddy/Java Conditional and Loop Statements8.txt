@@ -1,0 +1,549 @@
+Selenium Class 9: Java Conditional and Loop Statements
+--------------------------------------------------------------
+Java Flow Control
+ i) Java Conditional Statements
+ 2) Java Loop Statements
+--------------------------------------------------------------
+i) Java Conditional Statements
+--------------------------------------------------------------
+> Conditional Statements are used to insert verification points and error handling.
+
+a) Two types of Conditional statements in Java
+
+1) if statement
+
+2) switch Statement
+------------------------
+b) Types of Conditions
+
+1) Single Condition (Positive and Negative Conditions)
+
+Ex:
+
+if (a > b) {
+-----
+----
+}
+---------------
+if (!(a < b)){
+------
+----------
+}
+--------------------
+2) Compound Condition
+
+Ex:
+
+if ((a > b) && (a < C)){
+--------
+--------
+}
+
+if ((a > b) || (a < C)){
+--------
+--------
+}
+------------------------------
+3) Nested Condition
+
+if (a>b){
+ if (a>c){
+  if (a>d){
+}
+}
+}
+----------------------------------
+c) Usage of Conditional Statements
+
+1) Execute a block of statements when condition is True.
+
+Syntax:
+
+if (Condition){
+Statements
+--------
+---------
+------
+}
+
+Example:
+
+public class Flow Control {
+ public static void main (String []args){
+
+  int a, b;
+  a=50; b=200;
+  
+  if (a > b){
+   System.out.println("A is a Big Number");
+  }
+}
+}
+------------------------------
+2) Execute a block of statements when a compound Condition is True.
+
+Syntax:
+
+if ((Condition1) && or || (Condition2)) {
+Statements
+---------
+---------
+}
+
+Example:
+
+public class FlowControl {
+ public static void main (String []args){
+
+  int a, b, c;
+  a=50; b=40; c=30;
+  
+  if ((a > b) && (a > c)) {
+   System.out.println("A is a Big Number");
+  }
+}
+}
+----------------------------
+3) Execute a block of statements when condition is True, otherwise execute another
+block of statements.
+
+Syntax:
+
+if (Condition) {
+Statements
+---------
+---------
+}
+else 
+{
+Statements
+---------
+---------
+}
+
+Example:
+
+public class FlowControl {
+ public static void main (String []args){
+  int a, b;
+  a=50; b=50;
+  
+  if (a > b){
+   System.out.println("A is a Big Number");
+  }
+  else
+  {
+   System.out.println("B is a Big Number"); 
+  }
+}
+}
+------------------------------
+4) Decide among several alternates (else if structure)
+
+Syntax:
+
+if (Condition){
+Statements
+-----------
+}
+else if (Condition) {
+Statements
+-----------
+}
+else if (Condition) {
+Statements
+-----------
+}
+else if (Condition) {
+Statements
+-----------
+}
+else
+{
+Statements
+-----------
+}
+
+Example:
+
+Initialize a integer variable, and Verify the Number.
+
+if the number is in between 1 and 100 then display number is a Small Number.
+
+if the number is in between 101 and 1000 then display number is a Medium Number.
+
+if the number is in between 1001 and 10000 then display number is a Big Number.
+
+if the number is more than 10000 then display number is High Number.
+
+Otherwise display Number is either Zero or Negative number.
+------------------------------------------------------
+public class FlowControl {
+ public static void main (String []args){
+ int a =-100;
+ 
+ if ((a >= 1) && (a <= 100)){
+  System.out.println("A is a Small Number");
+ }
+ else if ((a > 100) && (a <= 1000)){
+ System.out.println("A is a Medium Number");
+ }
+ 
+ else if ((a > 1000) && (a <= 10000)){
+  System.out.println("A is a Big Number");
+  }
+ else if (a > 10000) {
+  System.out.println("A is High Number");
+  }
+ else
+ {
+  System.out.println("A is either Zero or Negative Number");
+ }
+}
+}
+------------------------------------------
+5) Execute a block of statements when more than one condition is True.
+
+Syntax:
+
+if(Condition){
+ if(Condition){
+  if(Condition){
+  Statements
+  --------
+  --------
+}
+
+}
+
+}
+---------------------------------
+Examples:
+----------------------------
+i) Else part for 1st condition only
+
+public class FlowControl {
+ public static void main (String []args){
+ int a =10, b=80, c=7, d=2;
+ 
+ if (a> b){
+  if (a>c){
+   if (a>d){
+   System.out.println("A is a Big Number");
+   }
+   }
+   }
+   else 
+   {
+    System.out.println("A is Not a Big Number");
+   }
+
+}
+}
+----------------------------------
+ii) Else part for 2nd condition only
+
+if (a> b){
+  if (a>c){
+   if (a>d){
+   System.out.println("A is a Big Number");
+   }
+   }
+  else 
+  {
+  System.out.println("A is Not a Big Number");
+  }
+  }
+---------------------   
+iii) Else part for 3rd condition only
+   
+if (a> b){
+  if (a>c){
+   if (a>d){
+   System.out.println("A is a Big Number");
+   }
+   else 
+        {
+       System.out.println("A is Not a Big Number");
+       }
+   }
+   }
+--------------------------
+iv) Else parts for all conditions
+
+public class FlowControl {
+ public static void main (String []args){
+ int a =10, b=8, c=7, d=2;
+ 
+ if (a> b){
+  if (a>c){
+   if (a>d){
+   System.out.println("A is a Big Number");
+   }
+   else 
+   {
+   System.out.println("A is Not a Big Number");
+   }
+      }
+   else 
+   {
+   System.out.println("A is Not a Big Number");
+   }
+   }
+  else 
+  {
+  System.out.println("A is Not a Big Number");
+  }
+}
+}
+--------------------------------------   
+Get Biggest number out of Four Numbers (else if and compound conditions) 
+
+public class FlowControl {
+ public static void main (String []args){
+ int a =10, b=8, c=7, d=2;
+ 
+ if ((a>b) && (a>c) && (a>d)){
+  System.out.println("A is a Big Number");
+ }
+  else if (((b>a) && (b>c) && (b>d))) {
+   System.out.println("B is a Big Number"); 
+  }
+  else if (((c>a) && (c>b) && (c>d))) {
+   System.out.println("C is a Big Number"); 
+  }
+  else{
+   System.out.println("D is a Big Number");
+  }
+  }
+ }
+-----------------------------
+6) Decide among several alternates (using Switch case structure)
+
+Syntax:
+
+switch (expression) {
+case value:
+Statements
+-------
+-------
+break;
+case value:
+Statements
+-------
+-------
+break;
+case value:
+Statements
+-------
+-------
+break;
+
+default
+Statements
+---------
+---------
+----------
+}
+---------------------------------
+Example:
+
+public class FlowControl {
+ public static void main (String []args){
+  char grade= 'X';
+  
+  switch (grade){
+  
+  case 'A':
+   System.out.println("Excellent");
+   break;
+  case 'B':
+   System.out.println("Well Done");
+   break;
+  case 'C':
+   System.out.println("Better");
+   break;
+   
+  default:
+  System.out.println("Invalid Grade");
+  }
+}
+}
+--------------------------------------------------------------
+ii) Java Loop Statements
+--------------------------------------------------------------
+Loop statements for repetitive execution.
+
+a) for loop
+
+b) while loop
+
+c) do while loop
+
+d) Enhanced for loop
+-----------------------------------------
+a) for loop
+
+Description: It repeats a block of statements for a specified number of times.
+
+Syntax:
+
+for (stratValue; endValue; increment/decrement){
+Statements
+-------
+-------
+}
+
+Example1:
+//Print 1 to 10 Numbers
+
+for(int i=1; i<=10; i++){
+   System.out.println(i);
+  }
+-----------------------------
+Example2:
+//Print 10 to 1 Numbers
+
+for(int i=10; i>=1; i--){
+   System.out.println(i);
+  }
+----------------------------------
+Example3:
+//Print 1 to 10 Numbers except 7
+
+----------------------------------
+for(int i=1; i<=10; i++){
+   if (i != 7){
+   System.out.println(i);
+   }
+-----------------------------------------
+Example4:
+//Print 1 to 10 Numbers except 4th number and 7th Number
+
+for(int i=1; i<=10; i++){
+   if ((i != 4) && (i != 7)){
+   System.out.println(i);
+   }
+  }
+----------------------------------------------
+b) while loop
+
+Description: It repeats a block of statements while condition is true.
+
+Syntax:
+
+Initialization
+while (Condition){
+statements
+--------
+-------
+increment/decrement
+}
+
+Example1:
+//Print 1 to 10 Numbers
+int i = 1;
+  while (i <= 10){
+   System.out.println(i);
+   i++;
+  }
+----------------------------------
+int i = 10;
+  while (i >= 1){
+   System.out.println(i);
+   i--;
+  }
+  }
+-------------------------------
+int i = 1;
+  while (i <= 10){
+   if (i != 7){
+   System.out.println(i);
+   }
+   i++;
+  }
+-----------------------------------------
+c) do while loop
+
+Description: It repeats a block of statements while condition is true.
+It executes a block of statements at least once irrespective of the condition.
+
+Syntax:
+
+Initialization
+do
+{
+Statements
+---------
+---------
+increment/decrement
+} while (Condition);
+
+Example:
+
+int i = 1;
+  do
+  {
+  System.out.println(i);
+  i++;
+  } while (i<=10);
+-----------------------------------
+int i = 20;
+  do
+  {
+  System.out.println(i);
+  i++;
+  } while (i<=10);
+-------------------------------------------
+d) Enhanced for loop
+
+It Executes all elements in an Array.
+
+Syntax:
+
+Array Declaration
+
+for (declaration: Expression/Array){
+Statements
+------
+}
+
+Examples:
+
+String [] languages ={"C", "COBOL", "Java"};
+  
+  for (String lang: languages){
+   System.out.println(lang);
+  }
+----------------------------------
+String [] languages = new String[3];
+  languages[0] ="C";
+  languages[1] ="COBOL";
+  languages[2] ="Java";
+  
+  for (String lang: languages){
+   System.out.println(lang);
+  }
+---------------------------------------
+int [] mathOperations = new int[3];
+  int a=10, b=20;
+  
+  mathOperations[0]= a+b;
+  mathOperations[1]= a-b;
+  mathOperations[2]= a*b;
+    
+  for (int operation: mathOperations){
+   System.out.println(operation);
+  }
+---------------------------------------------
+double [] mathOperations = new double[4];
+  double a=10, b=20;
+  
+  mathOperations[0]= a+b;
+  mathOperations[1]= a-b;
+  mathOperations[2]= a*b;
+  mathOperations[3]= a/b;
+  
+  for (double operation: mathOperations){
+   System.out.println(operation);
+  }

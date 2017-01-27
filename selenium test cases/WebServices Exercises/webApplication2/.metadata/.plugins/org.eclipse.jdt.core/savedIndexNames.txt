@@ -1,0 +1,7 @@
+INDEX VERSION 1.127+C:\Users\Adarsh P\Desktop\selenium test cases\WebServices Exercises\webApplication2\.metadata\.plugins\org.eclipse.jdt.core
+2734364203.index
+2275844940.index
+2785889402.index
+1152929935.index
+1391208991.index
+2465757346.index

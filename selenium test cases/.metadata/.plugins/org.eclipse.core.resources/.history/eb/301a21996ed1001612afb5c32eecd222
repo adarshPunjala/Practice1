@@ -1,0 +1,14 @@
+package chrome;
+
+import abc.Training1;
+
+public class Training2 extends Training1 {
+	public static void main(String[]args){
+		
+	
+Training1 obj = new Training1();
+obj.day();
+obj.month();
+obj.year();
+}
+}

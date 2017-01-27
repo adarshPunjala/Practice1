@@ -1,0 +1,11 @@
+package chrome;
+
+public class Method1 extends Methods {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+    Method1 obj1 = new Method1();
+    obj1.adminlogin();
+	}
+
+}

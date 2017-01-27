@@ -1,0 +1,29 @@
+package chrome;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+public class TestCase9 {
+
+	public static void main(String[] args) {
+    
+	System.setProperty("Webdriver.gecko.driver", "C:\\Users\\Adarsh P\\Desktop\\selenium-java-3.0.1\\geckodriver-v0.9.0-win64\\geckodriver.exe");
+	WebDriver mdriver = new FirefoxDriver();
+	mdriver.get("https://www.google.com/");
+	mdriver.findElement(By.linkText("Gmail")).click();
+	String text = mdriver.findElement(By.className("hidden-small")).getText();
+		
+	WebDriver driver = new ChromeDriver();
+    driver.get("http://www.gcrit.com/build3/login.php");
+    driver.findElement(By.name("email_address")).sendKeys(text);
+    driver.findElement(By.name("password")).sendKeys("Adarsh3033");
+    //driver.findElement(By.id("tdb5")).click();
+    
+    
+    
+    
+	}
+
+}

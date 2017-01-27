@@ -1,0 +1,37 @@
+package com.demoaut.newtours.TestScripts;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+
+import com.demoaut.newtours.Pages.LoginPage;
+import com.demoaut.newtours.Pages.flightFinder;
+
+public class newTours {
+	WebDriver driver;
+	@BeforeTest
+	public void Launch(){
+		driver = new ChromeDriver();
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		driver.get("http://newtours.demoaut.com/");
+		driver.manage().window().maximize();
+	}
+	@Test
+	public void TestCase(){
+		LoginPage a = new LoginPage(driver);
+		flightFinder b = new flightFinder(driver);
+		a.applicationLogin();
+		b.flight();
+	}
+	
+	
+	@AfterTest
+	public void Close(){
+		driver.close();
+	}
+
+}

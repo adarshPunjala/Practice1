@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;RealTimePackage.Gmail&apos; to &apos;SeleniumHQ&apos;&#x0D;&#x0A;- Original project: &apos;RealTimeProject&apos;&#x0D;&#x0A;- Original element: &apos;RealTimePackage.Gmail&apos;&#x0D;&#x0A;- Renamed element: &apos;RealTimePackage.SeleniumHQ&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;Gmail&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;RealTimePackage{Gmail.java[Gmail" matchStrategy="1" name="SeleniumHQ" qualified="false" references="true" similarDeclarations="false" stamp="1482278728027" textual="false" version="1.0"/>
+</session>

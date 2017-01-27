@@ -1,0 +1,16 @@
+if (url.equals("https://shibboleth.fullerton.edu/idp/profile/SAML2/Redirect/SSO?execution=e2s1")){
+			System..args3out.println("Test passed");
+		}
+		else{
+			System.out.println("Test failed");
+		}
+
+
+driver.findElement(By.name("j_username")).sendKeys("saiadarsh");
+		driver.findElement(By.name("j_password")).sendKeys("Adarsh@3033");
+		driver.findElement(By.name("_eventId_proceed")).click();
+		String url = driver.getCurrentUrl();
+
+
+System.setProperty("webdriver.gecko.driver", "C:/Program Files (x86)/Mozilla Firefox/firefox.exe");
+	

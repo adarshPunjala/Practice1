@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://Package1" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://Package1" xmlns:intf="http://Package1" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+
+   <wsdl:portType name="packageClass1">
+
+   </wsdl:portType>
+
+   <wsdl:binding name="packageClass1SoapBinding" type="impl:packageClass1">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+   </wsdl:binding>
+
+   <wsdl:service name="packageClass1Service">
+
+      <wsdl:port binding="impl:packageClass1SoapBinding" name="packageClass1">
+
+         <wsdlsoap:address location="http://tempuri.org/WSexample1/services/packageClass1"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

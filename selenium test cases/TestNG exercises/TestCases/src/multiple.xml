@@ -1,0 +1,9 @@
+<!Doctype/>
+<suite name="Ecommerce">
+  <test name="SanityTests">
+    <classes>
+      <class name="Double3"/>
+      <class name="Double4"/>
+    </classes>
+  </test>
+</suite>

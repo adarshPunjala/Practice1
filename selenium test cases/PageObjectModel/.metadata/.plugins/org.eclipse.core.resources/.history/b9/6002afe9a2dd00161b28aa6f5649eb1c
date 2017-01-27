@@ -1,0 +1,36 @@
+package com.demoaut.newtours.TestScripts;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+
+import com.demoaut.newtours.Pages.LoginPage;
+
+public class accountValidation {
+	WebDriver driver;
+	@BeforeTest
+	public void launch(){
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\Adarsh P\\Desktop\\selenium-java-3.0.1\\chromedriver_win32\\chromedriver.exe");
+	WebDriver driver = new ChromeDriver();
+	driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+	driver.get("http://newtours.demoaut.com/");
+	driver.manage().window().maximize();
+	}
+	@Test
+	public void Validation(){
+		LoginPage a = new LoginPage(driver);
+		a.applicationLogin("mercury", "mercury");
+		
+	}
+	@AfterTest
+	public void close(){
+		driver.close();
+		
+	}
+
+}

@@ -1,0 +1,50 @@
+package GuruPackage;
+
+
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.annotations.Test;
+
+public class GuruClass1 {
+
+	//public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+	@Test
+	public void scrolldown(){
+	System.setProperty("webdriver.chrome.driver", "C:\\Users\\Adarsh P\\Desktop\\selenium-java-3.0.1\\chromedriver_win32\\chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+		driver.get("http://www.demo.guru99.com/V4/");
+		driver.manage().window().maximize();
+	}
+}
+		/*driver.findElement(By.name("uid")).sendKeys("mngr57008");
+		driver.findElement(By.name("password")).sendKeys("dUjysUr");
+		driver.findElement(By.name("btnLogin")).click();
+		String a = driver.getCurrentUrl();
+        System.out.println(a);
+        if(a.equals("http://www.demo.guru99.com/V4/manager/Managerhomepage.php")){
+        	System.out.println("Login Successful");
+        }
+        else{
+        	System.out.println("Login Failed");
+        }
+        System.out.println(driver.getTitle());
+        driver.findElement(By.linkText("Log out")).click();
+        Alert alt = driver.switchTo().alert();
+        alt.accept();
+        Thread.sleep(2000);
+        String b = driver.getCurrentUrl();
+        if(!b.equals("http://www.demo.guru99.com/V4/manager/Managerhomepage.php")){
+        	System.out.println("Logout Successful");
+        }
+        else{
+        	System.out.println("Logout Failed");
+        }
+        System.out.println("Test Execution Finished");
+        driver.close();
+	}
+*/
+

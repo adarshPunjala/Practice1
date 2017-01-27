@@ -1,0 +1,19 @@
+package packageJenkins;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.annotations.Test;
+
+public class testCase1 {
+	//@Test
+	//public void loginGmail(){
+	
+	public static void main(String []args){
+		WebDriver driver = new ChromeDriver();
+	driver.get("www.gmail.com");
+	driver.findElement(By.id("signIn")).click();
+	driver.close();
+	}
+}

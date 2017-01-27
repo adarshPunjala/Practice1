@@ -1,0 +1,693 @@
+Selenium Class 19: Handling Elements in Selenium
+------------------------------------------------
+Pre-requisites to create Test cases in Selenium
+
+i) Element Locators (To recognize/identify Elements)
+
+ii) WebDriver Methods (To perform operations on Elements)
+
+iii) Programming features (To enhance Test cases)
+--------------------------------------------------------------
+iv) TestNG Annotations (Grouping Test Cases, Test Batch execution and generating reports.)
+--------------------------------------------------------------
+i) Element Locators
+---------------------
+1) id
+
+2) name
+
+3) className
+
+4) tagName
+
+5) linkText
+
+6) parialLinkText
+
+7) cssSelector
+
+8) xpath
+------------------------------
+Web Elements
+
+Browser -driver object
+-----------
+Link
+Button
+Image, Image Button, Image Link
+Edit box
+Text Area
+Check box
+Radio Button
+Drop down box
+List box
+Combo box
+Web Table / HTML Table
+Frame etc...
+------------------------------------
+ii) WebDriver Methods
+------------------------------------
+a) Methods on Browser
+
+1) get()
+
+2) getTitle()
+
+3) getPageSource()
+
+4) getCurrentUrl()
+
+5) getwindowHandle()
+
+6) close()
+
+7) quit()
+--------------------
+b) Browser navigation methods
+
+1) navigate().to()
+
+2) navigate().back()
+
+3) navigate().forward()
+
+4) navigate().refresh()
+------------------------------
+c) Methods on Elements
+
+1) findElement()
+
+2) findElements()
+
+3) sendkeys()
+
+4) clear()
+
+5) click()
+
+6) isEnabled()
+
+7) isDisplayed()
+
+8) isSelected()
+
+9) getText()
+
+10) getAttribute()
+-----------------------------------
+d) Others
+
+1) manage.window.maximize()
+
+2) .explicitlyWait()
+-------------------------------------
+iii) Java Programming features
+
+A) Java Fundamentals
+
+1) Comments
+
+2) Data Types
+
+3) Modifiers
+
+4) Variables
+
+5) Operators
+
+6) Conditional Statements
+
+7) Loop Statements
+
+8) String handling
+
+9) Arrays in Java
+
+10) Built in Methods
+
+11) User defined Methods
+
+12) Input and Output Operations, File Handling
+
+13) Exception Handling
+
+B) Java OOPS
+
+1) Inheritance
+
+2) Polymorphism
+
+3) Abstraction 
+
+4) Encapsulation
+------------------------------------
+Handling Elements in Selenium
+------------------------------------
+i) Handling Browser
+
+Operations on Browser:
+
+> Launch the Browser
+> Navigate to specified URL
+> Return Current URL
+> Get the Page Title
+> Return Page source
+> Return Window handle
+> Close focused Browser
+> Close all browsers that opened by selenium WebDriver during execution
+-----------
+> Navigate to another URL
+> Navigate back to previous URL
+> Navigate forward
+> Refresh the Browser
+> Maximize the Browser window.
+-------------------------------------
+Examples:
+
+public static void main(String[] args) {
+WebDriver driver = new FirefoxDriver();
+driver.get("https://www.google.co.in");
+
+String PageTitle = driver.getTitle();
+System.out.println(PageTitle);
+
+String URL = driver.getCurrentUrl();
+System.out.println(URL);
+
+String PageSource = driver.getPageSource();
+System.out.println(PageSource);
+
+String WindowHandle = driver.getWindowHandle();
+System.out.println(WindowHandle);
+
+driver.close();
+driver.quit();
+----------------------------------------
+public static void main(String[] args) {
+WebDriver driver = new FirefoxDriver();
+driver.get("https://www.google.co.in");
+driver.navigate().to("https://login.yahoo.com/");
+System.out.println(driver.getCurrentUrl());
+
+driver.navigate().back();
+System.out.println(driver.getCurrentUrl());
+
+driver.navigate().forward();
+System.out.println(driver.getCurrentUrl());
+
+driver.manage().window().maximize();
+--------------------------------------------
+ii) Handling Edit box
+-----------------------
+Operations on Edit box
+
+> Enter a value
+> Clear the Value
+> Return the Value
+> Check Displayed status
+> Check Enabled statues
+
+Example:
+
+//Finding Edit box using id locator
+driver.findElement(By.id("Email")).sendKeys("gcrindia");
+
+//Finding Edit box using name locator
+driver.findElement(By.name("Email")).sendKeys("gcrindia");
+
+//Finding Edit box using CSS Selector locator
+driver.findElement(By.cssSelector("#Email")).sendKeys("gcrindia");
+
+//Finding Edit box using xpath locator
+driver.findElement(By.xpath(".//*[@id='Email']")).sendKeys("gcrindia");
+
+//Clear the Value
+driver.findElement(By.xpath(".//*[@id='Email']")).clear();
+--------------------------------
+WebElement Email = driver.findElement(By.xpath(".//*[@id='Email']"));
+
+Email.sendKeys("gcrindia");
+
+//Return Type of the Object
+Email.getAttribute("type");
+
+//Return the Value
+System.out.println(Email.getText());//gcrindia
+
+//Return Displayed status
+System.out.println(Email.isDisplayed());//true
+
+//Return Enabled status
+System.out.println(Email.isEnabled());//true
+
+//Clear the value
+driver.findElement(By.id("Email")).clear();
+---------------------------------------------
+iii) Handle Text Area
+-----------------------
+Capture Text Area/Capture Error Message
+
+Capture Text Area:
+
+driver.get("https://www.gmail.com");
+String s = driver.findElement(By.xpath("html/body/div[1]/div[2]/div[1]/h1")).getText();
+System.out.println(s);
+
+Capture Error Message:
+
+WebDriver driver = new FirefoxDriver();
+driver.get("https://login.yahoo.com/");
+driver.manage().window().maximize();
+driver.findElement(By.xpath(".//*[@id='login-signin']")).click();
+String ErrorMessage = driver.findElement(By.id("mbr-login-error")).getText(); 
+System.out.println(ErrorMessage);
+------------------------------------------
+Capture Error Message in Gmail Login Operation.
+---------------------------------------------
+Handle Window Popup
+
+WebDriver driver = new FirefoxDriver();
+driver.get("https://mail.rediff.com/cgi-bin/login.cgi");
+driver.findElement(By.name("proceed")).click();
+
+Alert alert = driver.switchTo().alert();
+String Error_Message =alert.getText();//Returns Error message
+System.out.println(Error_Message);
+
+alert.accept();//Closes OK Button
+driver.findElement(By.id("login1")).sendKeys("Inda123");
+-------------------------------
+iv) Handle Button
+-------------------------------
+> Click
+> Check the Displayed status
+> Check the Enabled status
+> Return name of the Object
+> Return type of the Object
+
+Example:
+
+WebDriver driver = new FirefoxDriver();
+driver.get("https://www.gmail.co.in");
+
+System.out.println(driver.findElement(By.id("next")).isEnabled());//true
+
+driver.findElement(By.id("next")).click();
+
+System.out.println(driver.findElement(By.id("next")).isDisplayed());//true
+
+System.out.println(driver.findElement(By.id("next")).isEnabled());//false
+
+System.out.println(driver.findElement(By.id("next")).getAttribute("type"));
+
+System.out.println(driver.findElement(By.id("next")).getAttribute("name"));
+
+System.out.println(driver.findElement(By.id("next")).getAttribute("value"));
+----
+Selenium Class 20: Handling Elements in Selenium Part-2
+--------------------------------------------------------------
+i) Handle Browser
+ii) Handle Edit box
+iii) Handle Text Area, Error Message, Window Dialog
+iv) handle Button
+-----------------------
+Return/Capture value from Edit box
+
+public static void main(String[] args) {
+WebDriver driver = new FirefoxDriver();
+driver.get("https://www.gmail.com");
+driver.findElement(By.id("Email")).sendKeys("India123");
+System.out.println(driver.findElement(By.id("Email")).getAttribute("value"));
+}
+}
+----------------------------------
+v) Handle Image
+----------------------------------
+Three types of Image elements in Web Environment.
+
+1) General Image (No functionality)
+
+2) Image Button (Submits)
+
+3) Image Link (Directs to another page/location)
+
+Example:
+
+public static void main(String[] args) {
+WebDriver driver = new FirefoxDriver();
+driver.get("https://www.google.com");
+System.out.println(driver.findElement(By.id("hplogo")).isDisplayed());//true
+System.out.println(driver.findElement(By.id("hplogo")).getAttribute("title"));
+
+driver.navigate().to("http://newtours.demoaut.com/");
+driver.findElement(By.name("login")).click();
+
+driver.navigate().to("http://www.seleniumhq.org/");
+driver.findElement(By.xpath(".//*[@id='choice']/tbody/tr/td
+
+[2]/center/a/img")).click();
+
+}
+}
+----------------------------------
+vi) Handle Link
+----------------------------------
+Operations on Link
+
+> Click
+> Check the Link Existence
+> Check Enabled status
+> Return Link Name etc...
+
+Example:
+
+WebDriver driver = new FirefoxDriver();
+driver.get("https://www.google.com");
+//driver.findElement(By.className("gb_P")).click();
+//driver.findElement(By.linkText("Gmail")).click();
+//driver.findElement(By.partialLinkText("mail")).click();
+//driver.findElement(By.cssSelector(".gb_P")).click();
+//driver.findElement(By.xpath(".//*[@id='gbw']/div/div/div[1]/div
+
+[1]/a")).click();
+WebElement Gmail_Link = driver.findElement(By.xpath(".//*
+
+[@id='gbw']/div/div/div[1]/div[1]/a"));
+boolean linkStatus = Gmail_Link.isDisplayed();
+System.out.println(linkStatus);//true
+
+linkStatus = Gmail_Link.isEnabled();
+System.out.println(linkStatus);//true
+
+String LinkName = Gmail_Link.getText();
+System.out.println(LinkName);
+
+Gmail_Link.click();
+}
+}
+----------------------------------
+vii) Handle Radio Button
+----------------------------------
+Operations on Radio Button
+
+> Select
+> Check Enabled status
+> Check Displayed status
+> Check Selected status
+
+Example:
+
+WebDriver driver = new FirefoxDriver();
+driver.get("http://www.gcrit.com/build3/create_account.php?
+
+osCsid=47gtsrhe41613u5r3eqhgdbas7");
+WebElement maleRadioButton = driver.findElement(By.xpath(".//*
+
+[@id='bodyContent']/form/div/div[2]/table/tbody/tr[1]/td[2]/input[1]"));
+boolean elementStatus = maleRadioButton.isDisplayed();
+System.out.println(elementStatus);//true
+
+System.out.println(maleRadioButton.isEnabled());//true
+
+System.out.println(maleRadioButton.isSelected());//false
+
+maleRadioButton.click();
+
+System.out.println(maleRadioButton.isSelected());//true
+}
+}
+----------------------------------
+viii) Handle Drop Down box
+----------------------------------
+Operations on Drop Down Box
+
+> Select an Item
+> Check Displayed status
+> Check Enabled status
+> Items count
+
+Example:
+
+public static void main(String[] args) {
+WebDriver driver = new FirefoxDriver();
+driver.get("http://www.gcrit.com/build3/create_account.php?
+
+osCsid=47gtsrhe41613u5r3eqhgdbas7");
+Select dropDown = new Select (driver.findElement(By.name("country")));
+//dropDown.selectByIndex(6);//Select an item by index
+//dropDown.selectByVisibleText("India");
+
+List<WebElement> e = dropDown.getOptions();
+int itemsCount = e.size();
+System.out.println(itemsCount);
+}
+}
+----------------------------------
+ix) Handle Check box
+----------------------------------
+Operations on Check box
+
+> Select
+> Unselect
+> Check Displayed status
+> Check Enabled status
+> Check selected status
+
+Example:
+
+WebDriver driver = new FirefoxDriver();
+driver.get("file:///E:/HTMLExamples/MultipleCheckbox.html");
+System.out.println(driver.findElement(By.xpath("html/body/input
+
+[2]")).isDisplayed());//true
+
+System.out.println(driver.findElement(By.xpath("html/body/input
+
+[2]")).isEnabled());//true
+
+System.out.println(driver.findElement(By.xpath("html/body/input
+
+[2]")).isSelected());//false
+
+driver.findElement(By.xpath("html/body/input[2]")).click();
+
+System.out.println(driver.findElement(By.xpath("html/body/input
+
+[2]")).isSelected());//true
+
+driver.findElement(By.xpath("html/body/input[2]")).click();
+
+System.out.println(driver.findElement(By.xpath("html/body/input
+
+[2]")).isSelected());//false
+----------------------------------
+x) Handle Web Table / HTML Table
+----------------------------------
+Operations on Web Table:
+
+> Get cell value
+> Rows Count
+> Cells Count
+
+Example:
+
+WebDriver driver = new FirefoxDriver();
+driver.get("file:///E:/HTMLExamples/htmlTable.html");
+String s = driver.findElement(By.xpath(".//*[@id='students']/tbody/tr[2]/td
+
+[2]")).getText();
+System.out.println(s);
+WebElement htmlTable = driver.findElement(By.id("students"));
+
+List <WebElement> rows = htmlTable.findElements(By.tagName("tr"));
+int r = rows.size();
+System.out.println(r);
+
+List <WebElement> cells = htmlTable.findElements(By.tagName("td"));
+int c = cells.size();
+System.out.println(c);
+----------------------------------
+xi) Handle inline Elements
+----------------------------------
+The span tag is used to group inline Elements in a Document.
+
+Example 1:
+
+WebDriver driver = new FirefoxDriver();
+driver.get("https://www.google.com");
+driver.findElement(By.xpath(".//*[@id='gbwa']/div[1]/a")).click();
+driver.findElement(By.xpath(".//*[@id='gb36']/span[1]")).click();
+driver.navigate().back();
+-----------------------
+Example 2:
+
+WebDriver driver = new FirefoxDriver();
+driver.get("https://www.google.com");
+driver.manage().window().maximize();
+driver.findElement(By.xpath(".//*[@id='gbwa']/div[1]/a")).click();
+driver.findElement(By.xpath(".//*[@id='gbwa']/div[2]/a[1]")).click();
+driver.findElement(By.xpath(".//*[@id='gb300']/span[1]")).click();
+-----------------------
+Handle Frames
+Handle Mouse Over
+Working with Multiple browser windows.
+-
+Selenium Class 21: Handling Elements in Selenium Part-3
+-------------------------------------------------------
+In Handling Elements in Selenium Part-1
+
+i) Handle Browser
+
+ii) Handle Edit box
+
+iii) Handle Text Area, Error Message, Window Dialog
+
+iv) Handle Button
+----------------------------------
+In Handling Elements in Selenium Part-2
+
+v) Handle Images (General Image, Image Button and Image Link)
+
+vi) Handle Link
+
+vii) Handle Radio Button
+
+viii) Handle Drop down box
+
+ix) Handle Check box
+
+x) Handle Web Table / HTML Table
+
+xi) Handling inline Elements
+-------------------------------
+Handling Elements in Selenium Part-3
+-----------------------------------------
+xii) Handle Frames
+
+> HTML frames are used to divide the Browser window into multiple sections, where each section can load a separate HTML document.
+
+> Frames are sections of Web page displayed on top window.
+
+> Whenever we access the page then focus on the top window.
+----------------------------------
+Switch to a frame is done in two ways
+
+1) Using frame index 
+
+Syntax:
+
+driver.swithchTo().frame(int index);
+
+Example:
+
+driver.get("http://seleniumhq.github.io/selenium/docs/api/java/index.html");
+driver.switchTo().frame(2);
+driver.findElement(By.xpath("html/body/div[3]/table/tbody[2]/tr[1]/td[1]/a")).click();
+-------------------------------
+2) Using frame name
+
+Syntax:
+
+driver.switchTo().frame(String frame Name);
+
+Example:
+
+driver.get("http://seleniumhq.github.io/selenium/docs/api/java/index.html");
+driver.switchTo().frame("classFrame");
+driver.findElement(By.xpath("html/body/div[3]/table/tbody[2]/tr[1]/td[1]/a")).click();
+--------------------------------------------
+> Top window to a Frame (frame index/frame name)
+
+> Switch from a frame to Top window
+
+Syntax:
+
+driver.switchTo().defaultContent();
+---------------------
+> Launch the page 
+> Switch to 3rd frame
+> Operate an element
+> Back to Top window
+> Switch to 1st frame
+> Operate an element
+--------------------------
+WebDriver driver = new FirefoxDriver();
+driver.get("http://seleniumhq.github.io/selenium/docs/api/java/index.html");
+
+//Switch to 3rd frame
+driver.switchTo().frame(2);
+driver.findElement(By.linkText("com.thoughtworks.selenium")).click();
+Thread.sleep(3000);
+//Switch from 3rd frame to Top window
+driver.switchTo().defaultContent();
+Thread.sleep(3000);
+//Switch to 1st frame
+driver.switchTo().frame(0);
+driver.findElement(By.linkText("org.openqa.selenium")).click();
+---------------------------------------
+WebDriver driver = new FirefoxDriver();
+driver.get("http://seleniumhq.github.io/selenium/docs/api/java/index.html");
+Thread.sleep(3000);
+//Switch to 3rd frame
+driver.switchTo().frame("classFrame");
+driver.findElement(By.linkText("com.thoughtworks.selenium")).click();
+Thread.sleep(3000);
+//Switch from 3rd frame to Top window
+driver.switchTo().defaultContent();
+Thread.sleep(3000);
+//Switch to 1st frame
+driver.switchTo().frame("packageListFrame");
+driver.findElement(By.linkText("org.openqa.selenium")).click();
+}
+}
+--------------------------------------
+xiii) Handle Mouse hover
+--------------------------------------
+WebDriver driver = new FirefoxDriver();
+driver.get("http://www.carmax.com/");
+//create Action builder instance by passing WebDriver instance
+Actions builder = new Actions(driver);
+WebElement menuElement = driver.findElement(By.linkText("Sell Us Your Car"));
+builder.moveToElement(menuElement).build().perform();
+driver.findElement(By.linkText("FAQ")).click();
+---------------------------------------------
+xiv) Handle Multiple Browsers
+---------------------------------------------
+String parent = driver.getWindowHandle();
+//System.out.println(parent);
+
+Set <String> Handles = driver.getWindowHandles();
+int BrowserCount = Handles.size();
+System.out.println(BrowserCount);
+
+for (String s1:Handles){
+if (! s1.equals(parent)){
+driver.switchTo().window(s1);
+System.out.println(driver.getCurrentUrl());
+}
+}
+driver.switchTo().window(parent);
+System.out.println(driver.getCurrentUrl());
+--------------------------------------------------
+Handle Duplicate objects
+----------------------------
+Redirecting to GCR Shop User Interface from Admin Interface
+(After Login to Admin Interface then Redirect to User Interface)
+
+Example:
+-------------------------------------
+driver.get("http://www.gcrit.com/build3/admin/");
+driver.findElement(By.name("username")).sendKeys("admina");
+driver.findElement(By.name("password")).sendKeys("admin@123");
+driver.findElement(By.id("tdb1")).click();
+String url = driver.getCurrentUrl();
+if (url.equals("http://www.gcrit.com/build3/admin/index.php")){
+driver.findElement(By.linkText("Online Catalog")).click();
+}
+System.out.println(driver.getCurrentUrl());
+}
+}
+---------------------------------------
+Assignment:
+
+Enter Password in to 2nd Password Edit box in www.infibeam.com Registration page.?

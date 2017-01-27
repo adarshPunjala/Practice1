@@ -1,0 +1,44 @@
+package XlsFile;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
+public class Test1 {
+
+	public static void main(String[] args) throws IOException {
+		// TODO Auto-generated method stub
+		File f = new File("C:\\Users\\Adarsh P\\Desktop\\selenium test cases\\Credentials.xlsx");
+        FileInputStream FIS = new FileInputStream(f);
+        XSSFWorkbook wb = new XSSFWorkbook(FIS);
+       XSSFSheet sheet1 = wb.getSheetAt(0);
+       
+       
+       
+       
+       
+       
+       
+       for(int i=0; i<sheet1.getRow(i);i++){
+       
+       
+       }
+       }
+      
+    	   
+    	   
+    	   
+    	   
+    	   
+    	   String a= sheet1.getRow(1).getCell(1).getStringCellValue();
+	System.out.println(a);
+	String inputData [] [] = new String
+	wb.close();
+	
+	}
+
+}
